@@ -1,22 +1,39 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+puts "Yeti Production Deploy"
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :application, "yeti"
+set :repository, "git@github.com:ericzou/yeti.git"  # Your clone URL
+default_run_options[:pty] = true  # Must be set for the password prompt from git to work
+set :scm, :git
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+ssh_options[:forward_agent] = true
+
+set :branch, "master"
+
+set :deploy_via, :remote_cache
+
+set :deploy_to, "/data/www/yeti"
+set :shared_path, "/data/www/yeti/shared"
+set :rails_env, "production"
+set :user, :ubuntu
+set :use_sudo, true
+set :rake, "/opt/ruby-enterprise-1.8.7-2010.02/bin/rake"
+
+role :web, "175.41.142.164"                          # Your HTTP server, Apache/etc
+role :app, "175.41.142.164"                          # This may be the same as your `Web` server
+role :db,  "175.41.142.164", :primary => true # This is where Rails migrations will run
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
 # these http://github.com/rails/irs_process_scripts
 
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+  task :link_database_config, :roles => :app do 
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config" # sync the database.yml file 
+  end
+  before "deploy:migrate", "deploy:link_database_config"
+end
