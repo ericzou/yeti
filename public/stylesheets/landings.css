@@ -1,0 +1,22 @@
+/*welcome page*/
+#welcome{
+  
+}
+
+#welcome #home-page-search{
+  width: 1000px;
+  height: 80px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 30px auto 30px auto;
+}
+
+#welcome #wrapper{
+  width: 1000px;
+  height: 400px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 30px auto 20px auto;
+}
