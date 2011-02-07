@@ -1,6 +1,6 @@
 /* default */
 body{ 
-  background-color: #f8f8f8; 
+  background-color: #E0E4CC; 
   color: #333; 
 }
 
@@ -26,7 +26,7 @@ div.field, div.actions {
 
 /* Header */
 #top{
-  background-color: #00A8C6;
+  background-color: #69D2E7;
   height: 75px;
   border-bottom: 1px solid #777;
 }
