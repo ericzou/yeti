@@ -24,13 +24,20 @@
 }
 
 #welcome #featured-lists{
-  width: 600px;
-  height: 400px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border: 1px solid #ccc;
   float: left;
+  -moz-box-shadow: 3px 3px 10px #ddd;
+  -webkit-box-shadow: 3px 3px 10px #ddd;
+  box-shadow: 3px 3px 10px #ddd;
 }
+
+#welcome #featured-lists img{
+  display: none;
+}
+
+#welcome #featured-lists img.first{
+  display: block;
+}
+
 
 #welcome #signup{
   width: 360px;

@@ -3,9 +3,10 @@
 <% body_class "landings" %>
 
 <div id="wrapper">
-  <div id="featured-lists">
-    
-  </div>
+  <ul id="featured-lists">
+    <li><a href="#"><img src="/images/img1.png" alt="" class="first"></a></li>
+    <li><a href="#"><img src="/images/img2.png" alt=""></a></li>
+  </ul>
   <div id="signup">
     <h1>The best way to discover and share lists</h1>
     <dl>
@@ -22,3 +23,16 @@
   <input type="textfield" id="search-box">
   <a class="awesome orange">Search</a>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#featured-lists").cycle({
+      timeout: 3000, //milliseconds between slide transitions (0 to disable auto advance)
+      speed: 750, // speed of the transition (any valid fx speed value)
+      delay: 1250, // additional delay (in ms) for first transition (hint: can be negative)
+      slideExpr: "a img" // expression for selecting slides (if something other than all children of container is required)
+      // next: "#featured #next", // id of element to use as click trigger for next slide
+      //      prev: "#featured #prev" // id of element to use as click trigger for previous slide 
+    });
+  })
+</script>
