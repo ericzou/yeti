@@ -9,7 +9,7 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border: 1px solid #ccc;
-  margin: 30px auto 30px auto;
+  padding: 20px;
 }
 
 #welcome #wrapper{
@@ -18,7 +18,7 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border: 1px solid #ccc;
-  margin: 30px auto 20px auto;
+  margin: 0 auto 20px auto;
   padding: 20px;
   background-color: #f8f8f8;
 }
@@ -47,6 +47,8 @@
   font-weight: bold;
   line-height: 40px;
   letter-spacing: 0.3px;
+  color: #4f4f4f;
+  text-shadow: 1px 1px #fff;
 }
 
 #welcome dl{
