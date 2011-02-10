@@ -14,7 +14,7 @@
 
 #welcome #wrapper{
   width: 1000px;
-  height: 400px;
+  height: 450px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border: 1px solid #ccc;
@@ -49,21 +49,37 @@
 }
 
 #welcome h1{
+  width: 415px;
   font-size: 36px;
   font-family: helvetica, arial;
   font-weight: bold;
   line-height: 40px;
   letter-spacing: 0.3px;
-  color: #4f4f4f;
+  color: #444133;
   text-shadow: 1px 1px #fff;
+
+  background-color: #DFECC6;
+  padding: 20px;
+  -webkit-border-radius: 10px;
+  position: relative;
+  top: 0;
+  right: 0;
 }
 
+#welcome h1 .tip{
+  background-image: url(/images/tip.png);
+  position: absolute;
+  bottom: -30px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+}
 #welcome dl{
   padding: 20px 0;
-  border-top: 1px solid #ccc;
 }
+
 #welcome dl dd{
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 #welcome dl dd label{
