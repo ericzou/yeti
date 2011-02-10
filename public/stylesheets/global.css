@@ -57,6 +57,9 @@ html[xmlns] .clearfix {
   margin: 0 auto;
 }
 
+#logo{
+  padding-top: 25px;
+}
 #container{
   xborder-top: 1px solid #888;
   background: #ccc url(/images/body.png) repeat;
@@ -149,3 +152,10 @@ html[xmlns] .clearfix {
 .orange.awesome:hover							{ background-color: #d45500; }
 .yellow.awesome, .yellow.awesome:visited		{ background-color: #ffb515; }
 .yellow.awesome:hover							{ background-color: #fc9200; }
+
+.custom.awesome{
+  background-color: #E55845;
+}
+.awesome.large{
+  font-size: 36px;
+}
