@@ -15,8 +15,8 @@
 #welcome #wrapper{
   width: 1000px;
   height: 450px;
-  -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
   border: 1px solid #ccc;
   margin: 0 auto 20px auto;
   padding: 20px;
@@ -25,13 +25,11 @@
 
 #welcome #featured-lists{
   float: left;
-  -moz-box-shadow: 3px 3px 10px #ddd;
-  -webkit-box-shadow: 3px 3px 10px #ddd;
-  box-shadow: 3px 3px 10px #ddd;
 }
 
 #welcome #featured-lists img{
-  display: none;
+  -webkit-box-shadow: 0 0 5px 1px #CCC;
+  -moz-box-shadow: 0 0 5px 1px #CCC;
 }
 
 #welcome #featured-lists img.first{
@@ -61,6 +59,7 @@
   background-color: #DFECC6;
   padding: 20px;
   -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
   position: relative;
   top: 0;
   right: 0;
@@ -86,10 +85,6 @@
   margin-bottom: 2px;
   display: block;
   color: #555;
-}
-
-#sign-up-button{
-  margin-left: 92px;
 }
 
 
