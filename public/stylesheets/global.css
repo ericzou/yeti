@@ -55,11 +55,24 @@ html[xmlns] .clearfix {
 #top #header{
   width: 1000px;
   margin: 0 auto;
+  position: relative;
 }
 
 #logo{
   padding-top: 25px;
 }
+
+#login{
+  position: absolute;
+  top: 15px;
+  right: -40px;
+}
+
+#login li{
+  float: left;
+}
+
+/*container*/
 #container{
   xborder-top: 1px solid #888;
   background: #ccc url(/images/body.png) repeat;
@@ -87,7 +100,7 @@ html[xmlns] .clearfix {
 #footer-nav li{
   float: left;
   margin-left: 15px;
-  color: #3e91ce;
+  color: #689c00;
   text-shadow: 1px 1px #fff;
 }
 
@@ -105,13 +118,31 @@ html[xmlns] .clearfix {
   color: #7C7972;
   border: 1px solid #E2E0D8;
   background: #F6F5F1;
-  line-height: 1;
   padding: 9px 5px 10px;
 }
 
 .form-textfield.mid{
   width: 238px;
 }
+
+.form-textfield.mi-short{
+  width: 160px;
+}
+
+.form-textfield.short{
+  width: 100px;
+}
+.form-label.green{
+  color: #3e5c2e;
+}
+
+.form-textfield.green{
+  background-color: #53951c;
+  border: 1px solid #84c150;
+  color: #fff;
+  padding: 5px;
+}
+
 /* -----------------------------------*/  
 /* ------>>> Buttons <<<--------------*/  
 /* -----------------------------------*/
@@ -153,9 +184,75 @@ html[xmlns] .clearfix {
 .yellow.awesome, .yellow.awesome:visited		{ background-color: #ffb515; }
 .yellow.awesome:hover							{ background-color: #fc9200; }
 
-.custom.awesome{
-  background-color: #E55845;
+.purple.awesome{
+  background-color: #b53d78;
 }
+
+.purple.awesome:hover{
+  background-color: #d31673;
+}
+
+.orange-red.awesome{
+  background-color: #e55208;
+}
+
+.orange-red.awesome:hover{
+  background-color: #f24026;
+}
+
 .awesome.large{
+  font-size: 24px;
+}
+.awesome.huge{
   font-size: 36px;
 }
+
+/*simple buttons*/
+
+.simple-button{
+  border: 1px solid #ccc;
+  color: #fff;
+  background-color: #777;
+  font-size: 14px;
+  padding: 4px 5px 5px 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.simple-button:hover{
+  background-color: #888;
+}
+
+.simple-button.dark-red{
+  background-color: #b30003;
+}
+
+.simple-button.dark-red:hover{
+  background-color: #d20015;
+}
+
+.simple-button.orange-red{
+  background-color: #e55208
+}
+
+.simple-button.orange-red:hover{
+  background-color: #f24026
+}
+
+.simple-button.large{
+  font-size: 24px
+}
+
+.simple-button.huge{
+  font-size: 36px
+}
+
+.simple-button.normal{
+  font-size: 14px
+}
+
+.simple-button.small{
+  font-size: 12px
+}
+
+
