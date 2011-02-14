@@ -74,9 +74,9 @@ html[xmlns] .clearfix {
 
 /*container*/
 #container{
-  xborder-top: 1px solid #888;
   background: #ccc url(/images/body.png) repeat;
   padding: 30px 0 30px 0;
+  min-height: 500px;
 }
 
 #container #content{
