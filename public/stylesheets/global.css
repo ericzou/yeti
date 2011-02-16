@@ -105,6 +105,9 @@ html[xmlns] .clearfix {
 
 /* general form */
 
+.form-line-item{
+  position: relative;
+}
 .form-label{
   display: block;
   font: 14px Arial, sans-serif;
@@ -142,6 +145,42 @@ html[xmlns] .clearfix {
   padding: 5px;
 }
 
+.floating-explanation{
+  padding: 5px;
+  border: 5px solid #e2ca5a;
+  color: #937d20;
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 260px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5); 
+  background-color: #fff68f;
+  display: none;
+  min-width: 170px;
+}
+
+.floating-explanation.wrong{
+ display: block;
+}
+
+.floating-explanation.correct{
+ display: block;
+}
+
+
+.floating-explanation .yellow-tip{
+  background: transparent url(/images/yellow-tip.png) no-repeat top left;
+  width: 15px;
+  height: 15px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: -10px;
+}
 /* -----------------------------------*/  
 /* ------>>> Buttons <<<--------------*/  
 /* -----------------------------------*/
