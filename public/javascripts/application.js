@@ -21,9 +21,7 @@ $(document).ready(function(){
   $('.submit').bind("click", function(e){
     e.preventDefault();
     if (!$(this).hasClass("disabled")){
-      console.log("here");
       $(this).parents("form").find(".spinner").removeClass("hide");
-      console.log(      $(this).parents("form").find(".spinner").html())
       $(this).addClass("disabled");
       $(this).parents("form").submit();
     }
