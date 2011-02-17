@@ -1,0 +1,25 @@
+/*jGrowl*/
+div.jGrowl div.jGrowl-notification{
+  opacity: 0.65;
+}
+
+div.jGrowl .notice .jGrowl-message {
+    color: green;
+    font-size: 14px;
+    background: url(/images/success.png) no-repeat top left;
+    padding-left: 25px;
+}
+
+div.jGrowl .alert .jGrowl-message {
+    color: orange;
+    font-size: 14px;
+    background: url(/images/notice.png) no-repeat top left;
+    padding-left: 25px;
+}
+
+div.jGrowl .error .jGrowl-message {
+    color: red;
+    font-size: 14px;
+    background: url(/images/error.png) no-repeat top left;
+    padding-left: 25px;
+}

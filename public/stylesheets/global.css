@@ -46,9 +46,12 @@ html[xmlns] .clearfix {
 }
 
 /* Header */
+#flash_message{
+  display:none;
+}
+
 #top{
-/*  background: #376AA4 url(/images/blue-pattern.gif) repeat;*/
-  background: #376AA4 url(/images/header.gif) repeat-x;
+  background: transparent url(/images/header.gif) repeat-x;
   height: 80px;
 }
 
@@ -62,15 +65,27 @@ html[xmlns] .clearfix {
   padding-top: 25px;
 }
 
-#login{
+#login,
+#user-menu{
   position: absolute;
   top: 15px;
   right: -40px;
 }
 
-#login li{
+#user-menu{
+  top: 0;
+}
+
+#login li,
+#user-menu li{
   float: left;
 }
+
+#user-menu li{
+  float: left;
+  padding: 2px 3px;
+}
+
 
 /*container*/
 #container{
@@ -84,6 +99,18 @@ html[xmlns] .clearfix {
   margin: 0 auto;
 }
 
+#wrapper{
+  width: 1000px;
+  height: 450px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 0 auto 20px auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+/*bottom*/
 #bottom{
   border-top: 1px solid #aaa;
   padding: 5px 0 0 0;
@@ -181,9 +208,33 @@ html[xmlns] .clearfix {
   top: 10px;
   left: -10px;
 }
+
+
+/* -----------------------------------*/  
+/* ------>>> general purpose <<<------*/  
+/* -----------------------------------*/
+.hide{
+  display: none !important;
+}
+
 /* -----------------------------------*/  
 /* ------>>> Buttons <<<--------------*/  
 /* -----------------------------------*/
+
+/* disabled */
+.disabled{
+  opacity: 0.5 !important;
+}
+
+.spinner{
+  background: transparent url(/images/indicators/spinner.gif) no-repeat top left;
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: relative;
+  top: -35px;
+  left: 200px;
+}
 
 /*awesome buttons - http://www.zurb.com/blog_uploads/0000/0617/buttons-03.html*/
 .awesome, .awesome:visited {

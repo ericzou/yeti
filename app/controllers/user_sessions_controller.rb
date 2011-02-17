@@ -12,7 +12,9 @@ class UserSessionsController < ApplicationController
       flash[:notice] = "Login successful!"
       redirect_back_or_default home_user_path(User.first)
     else
-      render :action => :new
+      flash[:error] = "Login error, please try again."
+      # puts "******", @user_session.errors.full_messages.to_sentence
+      render :template => "landings/welcome"
     end
   end
   

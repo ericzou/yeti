@@ -2,35 +2,29 @@
 <html>
 <head>
   <title><%= yield :page_title %></title>
-  <%= stylesheet_link_tag "reset", "global", "landings" %>
+  <%= stylesheet_link_tag "reset", "global", "landings", "jquery.jgrowl", "custom" %>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
   </script>
-  <%= javascript_include_tag "application", "jquery.cycle.min" %>
+  <%= javascript_include_tag "jquery.cycle.min", "jquery.jgrowl_minimized", "jquery.livequery", "application" %>
   <%= csrf_meta_tag %>
 </head>
 <body class="<%= yield :body_class -%>" id="<%= yield :body_id %>">
+  <div id="flash_message">
+    <%= render :partial=>"layouts/flash", :locals=>{ :flash => flash } %>
+  </div>
+
+  <div class="notify-container"></div>
+
   <div id="top">
     <div id="header">
-      <div id="logo" style="padding-top: 25px;">
-        <a href="/">
-          <img src="/images/logo-top.png" alt="">
-        </a>
-      </div>
-      <div id="tag-line" style="color: white; font-family: arial; font-size: 36px; padding-top: 25px; text-shadow: #333 -1px -1px;"></div>
+      <%= render :partial => 'layouts/logo' %>
 
-      <% form_for UserSession.new do |f| -%>
-      <ul id="login">
-        <li>
-          <label for="" class="form-label green">Email</label>
-          <%= f.text_field :email, :class => "form-textfield green mi-short" %>
-        </li>
-        <li>
-          <label for="" class="form-label green">Password</label>
-          <%= f.password_field :password, :class => "form-textfield green short" %>
-        </li>
-        <li style="padding-top: 17px"><button class="simple-button orange-red">Sign In</button></li>
-      </ul>
-      <% end -%>
+      <div id="tag-line" style="color: white; font-family: arial; font-size: 36px; padding-top: 25px; text-shadow: #333 -1px -1px;"></div>
+      <% if current_user %>
+        <%= render :partial => 'layouts/user_menu' %>
+      <% else %>
+        <%= render :partial => 'layouts/login_header' %>
+      <% end %>
     </div>
   </div>
   <div id="container">
@@ -50,4 +44,9 @@
     </div>
   </div>
 </body>
+<script type="text/javascript">
+  $(document).ready(function(){
+   
+  });
+</script>
 </html>

@@ -12,16 +12,6 @@
   padding: 20px;
 }
 
-#welcome #wrapper{
-  width: 1000px;
-  height: 450px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border: 1px solid #ccc;
-  margin: 0 auto 20px auto;
-  padding: 20px;
-  background-color: #f8f8f8;
-}
 
 #welcome #featured-lists{
   float: left;

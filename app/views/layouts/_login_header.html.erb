@@ -1,0 +1,13 @@
+<% form_for UserSession.new do |f| -%>
+<ul id="login">
+  <li>
+    <label for="" class="form-label green">Email</label>
+    <%= f.text_field :email, :class => "form-textfield green mi-short" %>
+  </li>
+  <li>
+    <label for="" class="form-label green">Password</label>
+    <%= f.password_field :password, :class => "form-textfield green short" %>
+  </li>
+  <li style="padding-top: 17px"><button class="simple-button orange-red">Sign In</button></li>
+</ul>
+<% end -%>
