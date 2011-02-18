@@ -58,6 +58,7 @@ class UsersController < ApplicationController
     @user.password_confirmation = @user.password # dont confirm password for now
     respond_to do |format|
       if @user.save
+        AppMailer.notification_to_admin_new_user_sign_up(@user).deliver
         format.html { redirect_to(home_user_path(@user), :notice => 'User was successfully created.') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
