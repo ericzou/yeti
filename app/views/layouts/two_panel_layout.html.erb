@@ -23,7 +23,12 @@
       </div>
     </div>
     <div id="right-panel">
-        <%= yield :right_panel_content %>
+        <ul id="right-panel-nav">
+          <%= yield :right_panel_nav %>
+        </ul>
+        <div id="right-panel-content">
+          <%= yield :right_panel_content %>
+        </div>        
     </div>
   </div>
 </div>

@@ -10,20 +10,29 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :creator_id %><br />
-    <%= f.text_field :creator_id %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <dl>
+    <dd class="form-line-item">
+      <%= f.label :title, "Title", :class => "form-label" %>
+      <%= f.text_field :title, :class => "form-textfield mid" %>
+      <div class="floating-explanation title"><span class="yellow-tip"></span>Give list a name</div>
+      </dd>
+    </dd>
+    <dd class="form-line-item">
+      <%= f.label :description, "Description", :class => "form-label" %>
+      <%= f.text_area :description, :class => "form-textarea mid short-height" %>
+      <div class="floating-explanation decription"><span class="yellow-tip"></span>What is this list about?</div>
+      </dd>
+    </dd>
+    <dd class="form-line-item">
+      <%= f.label :style, "Choose a list style", :class => "form-label" %>
+      <%= f.radio_button :style, "numbers" %>  
+      <%= f.label :style, "Numbered List" %>
+      <%= f.radio_button :style, "bullets" %>
+      <%= f.label :style, "Bulleted List" %>
+    </dd>
+    <dd class="form-line-item actions">
+      <button class="minimal">Submit</button>
+    </dd>
+  </dd>
+  </dl>
 <% end %>

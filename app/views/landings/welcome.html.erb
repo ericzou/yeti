@@ -2,6 +2,7 @@
 <% body_id "welcome" %>
 <% body_class "landings" %>
 
+<% content_for :content do %>
 <div id="wrapper">
   <ul id="featured-lists">
     <li><a href="#"><img src="/images/featured1.png" alt="" class="first" style="width: 100%; overflow:hidden;"></a></li>
@@ -30,3 +31,5 @@
     });
   })
 </script>
+
+<% end %>

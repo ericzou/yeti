@@ -44,7 +44,8 @@ class ListsController < ApplicationController
   # POST /lists.xml
   def create
     @list = List.new(params[:list])
-
+    @list.creator = current_user
+    
     respond_to do |format|
       if @list.save
         format.html { redirect_to(@list, :notice => 'List was successfully created.') }

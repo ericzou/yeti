@@ -23,6 +23,24 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
+/*h1, 2, 3, 4, 5, 6 */
+h1{
+  font-size: 36px;
+}
+
+h2{
+  font-size: 30px;
+}
+
+h3{
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+h4{
+  font-size: 18px;
+}
+
 /* clearfix*/
 .clearfix:after {
 	content: ".";
@@ -158,6 +176,7 @@ html[xmlns] .clearfix {
 
 .form-line-item{
   position: relative;
+  margin-top: 15px;
 }
 .form-label{
   display: block;
@@ -166,7 +185,8 @@ html[xmlns] .clearfix {
   padding-bottom: 4px;
 }
 
-.form-textfield{
+.form-textfield,
+.form-textarea{
   font: 14px Arial, sans-serif;
   color: #7C7972;
   border: 1px solid #E2E0D8;
@@ -174,7 +194,8 @@ html[xmlns] .clearfix {
   padding: 9px 5px 10px;
 }
 
-.form-textfield.mid{
+.form-textfield.mid,
+.form-textarea{
   width: 238px;
 }
 
@@ -185,6 +206,11 @@ html[xmlns] .clearfix {
 .form-textfield.short{
   width: 100px;
 }
+
+.form-textarea.short-height{
+  height: 100px;
+}
+
 .form-label.green{
   color: #3e5c2e;
 }
