@@ -86,6 +86,30 @@ html[xmlns] .clearfix {
   padding: 2px 3px;
 }
 
+#global-nav{
+  position: absolute;
+  top: 35px;
+  right: -40px;
+}
+
+#global-nav li{
+  font-size: 16px;
+  color: white;
+  background-color: #777;
+  padding: 5px 15px 9px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  text-shadow: -1px -1px #333;
+}
+
+#global-nav li:hover{
+  background-color: #555;
+}
+
+#global-nav li a{
+  text-decoration: none;
+  color: white;
+}
 
 /*container*/
 #container{
