@@ -9,15 +9,13 @@
         </form>
       </li>
       <li id="create-a-list">
-        <button class="minimal">Create a list</button>
+        <%= link_to "Create a list", new_list_path, :class => "minimal"  %>
       </li>
     </ul>
   </div>
   <div id="main" class="clearfix">
     <div id="left-panel">
       <ul id="left-panel-nav">
-        <!-- <li class="my-lists selected"><a href="#">My Lists</a></li>
-              <li class="create-new-list"><%= link_to "Create New List", new_list_path %></li> -->
         <%= yield :left_panel_nav %>
       </ul>
       <div id="left-panel-content">

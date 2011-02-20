@@ -262,7 +262,7 @@ html[xmlns] .clearfix {
 
 /* minimal
 *******************************************************************************/
-button.minimal {
+button.minimal, a.minimal{
   background: #e3e3e3;
   border: 1px solid #bbb;
   -moz-border-radius: 3px;
@@ -280,9 +280,16 @@ button.minimal {
   text-align: center;
   text-shadow: 0 1px 0 #fff;
   width: 150px;
+  text-decoration: none;
 }
 
-button.minimal:hover {
+a.minimal{
+  display: block;
+  margin-top: 2px;
+}
+
+button.minimal:hover,
+a.minimal:hover{
   background: #d9d9d9;
   -moz-box-shadow: inset 0 0 1px 1px #eaeaea;
   -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
@@ -291,7 +298,8 @@ button.minimal:hover {
   cursor: pointer;
 }
 
-button.minimal:active {
+button.minimal:active,
+a.minimal:active{
   background: #d0d0d0;
   -moz-box-shadow: inset 0 0 1px 1px #e3e3e3;
   -webkit-box-shadow: inset 0 0 1px 1px #e3e3e3;
