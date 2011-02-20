@@ -1,0 +1,73 @@
+/*------------------------*/
+/*----user home-----------*/
+/*------------------------*/
+
+/*search for create*/
+#search-or-create{
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 15px;
+}
+#search-or-create .form-textfield{
+  padding: 7px 5px 6px;
+}
+
+#search-or-create ul li{
+  float: left;
+}
+
+#search-or-create #create-a-list{
+  margin-left: 25px;
+}
+
+/*main layout*/
+#main{
+}
+
+#main #left-panel{
+  min-height: 500px;
+  width: 300px;
+  float: left;
+}
+
+#main #right-panel{
+  min-height: 500px;
+  width: 670px;
+  background-color: green;
+  border: 2px solid #ccc;
+  float: left;
+  margin-left: 20px;
+}
+
+#main #left-panel-nav{
+  height: 29px;
+}
+
+#main #left-panel-nav li{
+  float: left;
+  margin-right: 2px;
+  padding: 5px 10px;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;  
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-topleft: 5px;
+}
+
+#main #left-panel-nav li.selected{
+  border-bottom: 1px solid #f8f8f8;
+}
+
+#main #left-panel-content{
+  border: 1px solid #ccc;
+  min-height: 474px;
+}
+
+
+
+
+
+

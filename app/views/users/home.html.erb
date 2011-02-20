@@ -1,7 +1,31 @@
 <% page_title "Yeti Home, the best way to share and discover lists" %>
-<% body_id "welcome" %>
-<% body_class "users" %>
+<% body_id "home" %>
+<% body_class "user" %>
 
 <div id="wrapper">
-  <h1>this is going to be logged in home page</h1>
+  <div id="search-or-create" class="clearfix">
+    <ul>
+      <li>
+        <form action="/search">
+          <input type="textfield" class="form-textfield mid">
+          <button class="minimal">Search Lists</button>
+        </form>
+      </li>
+      <li id="create-a-list">
+        <button class="minimal">Create a list</button>
+      </li>
+    </ul>
+  </div>
+  <div id="main" class="clearfix">
+    <div id="left-panel">
+      <ul id="left-panel-nav">
+        <li class="my-lists selected"><a href="#">My Lists</a></li>
+        <li class="create-new-list"><a href="#">Create new list</a></li>
+      </ul>
+      <div id="left-panel-content">
+        
+      </div>
+    </div>
+    <div id="right-panel"></div>
+  </div>
 </div>
