@@ -57,13 +57,36 @@
   -moz-border-radius-topleft: 5px;
 }
 
+#main #left-panel-nav li:hover{
+  background-color: #e3e3e3;
+}
+#main #left-panel-nav li a{
+  text-decoration: none;
+  color: #333;
+}
+
+#main #left-panel-nav li a{
+  color: #333;
+}
+
+#main #left-panel-nav li.selected a{
+  cursor: default;
+}
+
 #main #left-panel-nav li.selected{
   border-bottom: 1px solid #f8f8f8;
 }
 
+#main #left-panel-nav li.selected:hover{
+  background-color: #f8f8f8;
+}
 #main #left-panel-content{
   border: 1px solid #ccc;
   min-height: 474px;
+  -webkit-border-top-right-radius: 5px;  
+  -webkit-border-bottom-right-radius: 5px;  
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
 }
 
 
