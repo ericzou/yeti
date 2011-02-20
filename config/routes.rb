@@ -1,4 +1,6 @@
 Yeti::Application.routes.draw do
+  resources :lists
+
   resources :users do 
     member do 
       get "home"

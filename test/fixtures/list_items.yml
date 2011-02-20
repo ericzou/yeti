@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  body: MyString
+  creator_id: 1
+  state: MyString
+
+two:
+  body: MyString
+  creator_id: 1
+  state: MyString

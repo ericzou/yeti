@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout "two_panel_layout"
   
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update, :index, :home]
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html {     render :template => "users/home", :layout => "layouts/two_panel_layout" }
       format.xml  { render :xml => @user }
     end
 

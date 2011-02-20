@@ -1,0 +1,35 @@
+<% content_for :content do %>
+<div id="wrapper">
+  <div id="search-or-create" class="clearfix">
+    <ul>
+      <li>
+        <form action="/search">
+          <input type="textfield" class="form-textfield mid">
+          <button class="minimal">Search Lists</button>
+        </form>
+      </li>
+      <li id="create-a-list">
+        <button class="minimal">Create a list</button>
+      </li>
+    </ul>
+  </div>
+  <div id="main" class="clearfix">
+    <div id="left-panel">
+      <ul id="left-panel-nav">
+        <!-- <li class="my-lists selected"><a href="#">My Lists</a></li>
+              <li class="create-new-list"><%= link_to "Create New List", new_list_path %></li> -->
+        <%= yield :left_panel_nav %>
+      </ul>
+      <div id="left-panel-content">
+        <%= yield :left_panel_content %>
+      </div>
+    </div>
+    <div id="right-panel">
+        <%= yield :right_panel_content %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<%= render :file => 'layouts/application' %>
+
