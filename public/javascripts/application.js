@@ -1,21 +1,37 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function(){
-
-  var render_flash_msg = function(msg, theme) {
-    $.jGrowl(msg, { theme: theme, life: 3000});
-  };
+  
+  Yeti = {
+    render_flash_msg : function(msg, theme) {
+      $.jGrowl(msg, { theme: theme, life: 3000});
+    }, 
+    
+    isEmpty : function(v){
+      if( v === null ){
+        return true;
+      }else if( v === []){
+        return true;
+      }else if( v === ""){
+        return true;
+      }else if( v.replace(/ /g, "") === ""){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  }
   
   $('#flash_message .notice').livequery(function(){
-    render_flash_msg($(this).text(), 'notice');
+    Yeti.render_flash_msg($(this).text(), 'notice');
   });
 
   $('#flash_message .alert').livequery(function() {
-    render_flash_msg($(this).text(), 'alert');
+    Yeti.render_flash_msg($(this).text(), 'alert');
   });
 
   $('#flash_message .error').livequery(function() {
-    render_flash_msg($(this).text(), 'error');
+    Yeti.render_flash_msg($(this).text(), 'error');
   });
 
   $('.submit').bind("click", function(e){

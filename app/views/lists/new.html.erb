@@ -18,7 +18,44 @@
         tag1, tag2
       </span>
     </li>
-  </div>
+  </ul>
+  
+  <ul class="list-items">
+    <li class="list-item">
+      <span class="list-style numbered">1</span>
+      <span class="list-item-input">
+        <input type="textfield", class="form-textfield very-long short-height">
+      </span>
+      <span class="list-item-body"></span>
+    </li>
+    <li class="list-item">
+      <span class="list-style numbered">2</span>
+      <span class="list-item-input">
+        <input type="textfield", class="form-textfield very-long short-height">
+      </span>
+      <span class="list-item-body"></span>
+    </li>
+    <li class="list-item">
+      <span class="list-style numbered">3</span>
+      <span class="list-item-input">
+        <input type="textfield", class="form-textfield very-long short-height">
+      </span>
+      <span class="list-item-body"></span>
+    </li>
+    <li class="list-item">
+      <span class="list-style numbered">4</span>
+      <span class="list-item-input">
+        <input type="textfield", class="form-textfield very-long short-height">
+      </span>
+      <span class="list-item-body"></span>
+    </li>
+    <li class="list-item">
+      <span class="list-style numbered">5</span>
+      <span class="list-item-body more">
+        click here to add more
+      </span>
+    </li>
+  </ul>
   <script type="text/javascript">
     $('#list_title').delayedObserver(0.5, function(){
       $('h3.list-title').html($('#list_title').val());
@@ -28,5 +65,22 @@
       $('.description').html($('#list_description').val());
     }, { event : 'keyup'} );
     
+    $('.list-item-input input').livequery("keyup", function(){
+      $(this).parents(".list-item").find(".list-item-body").html($(this).val());
+    });
+    
+    $('.list-item-input input').livequery("blur", function(){
+      if (Yeti.isEmpty($(this).val()) ){
+        return
+      };
+      $(this).parents(".list-item-input").hide();
+      $(this).parents(".list-item").find(".list-item-body").show();
+    });
+
+    $('.list-item-body').livequery("click", function(){
+      $(this).hide();
+      $(this).parents(".list-item").find(".list-item-input").show();
+    });
+
   </script>
 <% end %>

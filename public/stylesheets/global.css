@@ -194,6 +194,10 @@ html[xmlns] .clearfix {
   padding: 9px 5px 10px;
 }
 
+.form-textfield.very-long{
+  width: 480px;
+}
+
 .form-textfield.mid,
 .form-textarea{
   width: 238px;
@@ -207,9 +211,14 @@ html[xmlns] .clearfix {
   width: 100px;
 }
 
+.form-textfield.short-height{
+  padding: 5px 5px 5px;
+}
+
 .form-textarea.short-height{
   height: 100px;
 }
+
 
 .form-label.green{
   color: #3e5c2e;
