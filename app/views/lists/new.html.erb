@@ -80,6 +80,7 @@
     $('.list-item-body').livequery("click", function(){
       $(this).hide();
       $(this).parents(".list-item").find(".list-item-input").show();
+      $(this).parents(".list-item").find(".list-item-input input").focus();
     });
 
   </script>
