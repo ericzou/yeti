@@ -42,16 +42,19 @@
       </span>
       <span class="list-item-body"></span>
     </li>
-    <li class="list-item">
+    <li class="list-item second-to-last">
       <span class="list-style numbered">4</span>
       <span class="list-item-input">
         <input type="textfield", class="form-textfield very-long short-height">
       </span>
       <span class="list-item-body"></span>
     </li>
-    <li class="list-item">
+    <li class="list-item last">
       <span class="list-style numbered">5</span>
-      <span class="list-item-body more">
+      <span class="list-item-input">
+        <input type="textfield", class="form-textfield very-long short-height">
+      </span>
+      <span class="list-item-body">
         click here to add more
       </span>
     </li>
@@ -82,6 +85,10 @@
       $(this).parents(".list-item").find(".list-item-input").show();
       $(this).parents(".list-item").find(".list-item-input input").focus();
     });
-
+    
+    $('.list-item.last').livequery("click", function(){
+      Yeti.clone_list_item(this);
+    });
+    
   </script>
 <% end %>

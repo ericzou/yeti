@@ -19,7 +19,32 @@ $(document).ready(function(){
       }else{
         return false;
       }
+    }, 
+    
+    clone_list_item : function(list_item){
+      the_clone = $(list_item).clone().insertAfter($(list_item));
+      $('.list-item.second-to-last').removeClass("second-to-last");
+      $(list_item).addClass("second-to-last");
+      $(list_item).removeClass("last");
+      $(the_clone).addClass("last");
+      $(the_clone).find(".list-item-input").hide();
+      $(the_clone).find(".list-item-body").show();
+      if ( $(list_item).find(".list-style.numbered").val() !== undefined ){
+        var n = $(list_item).find(".list-style.numbered").html();
+        $(the_clone).find(".list-style.numbered").html( parseInt(n) + 1);
+      } 
     }
+     
+    // create_list_item: function(n){
+    //       var t = ( n === null ? "bulleted" : "numbered" );
+    //       str = "<li class=" + "'list-item'> " 
+    //               + "<span class=" + "'list-style numbered'>"  + "4" + "</span>"
+    //               + "<span class=" + "'list-item-input'>"
+    //                   + "<input type='textfield', class='form-textfield very-long short-height'>"
+    //                 +"</span>"
+    //       <span class="list-item-body"></span>
+    //     </li>"
+    //     }
   }
   
   $('#flash_message .notice').livequery(function(){

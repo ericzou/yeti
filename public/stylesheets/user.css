@@ -106,6 +106,18 @@
   font-size: 16px;
   display: none;
 }
+
+#main #right-panel-content .list-item.last .list-item-input{
+  display: none;
+}
+
+#main #right-panel-content .list-item.last .list-item-body{
+  font-size: 16px;
+  display: inline;
+  color: #777;
+  font-style: italic;
+}
+
 #main #right-panel-content .list-style.numbered{
   font-size: 16px;
   font-weight: bold;
