@@ -100,7 +100,21 @@
 
 #main #right-panel-content .list-item{
   margin-bottom: 15px;
+  position: relative;
 }
+
+#main #right-panel-content .list-item .floating-explanation{
+  margin-bottom: 15px;
+  top: -5px;
+  left: 540px;
+}
+
+#main #right-panel-content .list-item .field_with_errors{
+  position: absolute;
+  top: -5px;
+  left: 20px;
+}
+
 
 #main #right-panel-content .list-item-body{
   font-size: 16px;

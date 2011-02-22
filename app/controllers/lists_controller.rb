@@ -28,7 +28,7 @@ class ListsController < ApplicationController
   # GET /lists/new.xml
   def new
     @list = List.new
-
+    1.times { @list.list_items.build } 
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @list }
@@ -45,10 +45,9 @@ class ListsController < ApplicationController
   def create
     @list = List.new(params[:list])
     @list.creator = current_user
-    
     respond_to do |format|
       if @list.save
-        format.html { redirect_to(@list, :notice => 'List was successfully created.') }
+        format.html { redirect_to(home_user_path(current_user), :notice => 'List was successfully created.') }
         format.xml  { render :xml => @list, :status => :created, :location => @list }
       else
         format.html { render :action => "new" }

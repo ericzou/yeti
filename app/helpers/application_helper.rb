@@ -16,4 +16,17 @@ module ApplicationHelper
     end
   end
   
+  def floating_explanation(obj, attribute, msg)
+    err = obj.errors[attribute].any? ? true : false
+    puts "**********", attribute, obj.errors.inspect
+    html = content_tag(:div, :class=>"floating-explanation title #{ err ? 'wrong' : '' }") do       
+      if err
+        m = attribute.to_s.titleize + " " + obj.errors[attribute][0]
+      else
+        m = msg
+      end
+      "<span class='yellow-tip'></span>#{m}"  
+    end
+  end
+  
 end

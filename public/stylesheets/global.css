@@ -247,6 +247,7 @@ html[xmlns] .clearfix {
   background-color: #fff68f;
   display: none;
   min-width: 170px;
+  z-index: 99;
 }
 
 .floating-explanation.wrong{

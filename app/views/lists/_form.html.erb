@@ -1,26 +1,24 @@
 <%= form_for(@list) do |f| %>
-  <% if @list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
-
-      <ul>
-      <% @list.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <!-- <% if @list.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+        <ul>
+        <% @list.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %> -->
   <dl>
     <dd class="form-line-item">
       <%= f.label :title, "Title", :class => "form-label" %>
       <%= f.text_field :title, :class => "form-textfield mid" %>
-      <div class="floating-explanation title"><span class="yellow-tip"></span>Give list a name</div>
+      <%= floating_explanation(@list, :title, "Give list a name") %>
       </dd>
     </dd>
     <dd class="form-line-item">
       <%= f.label :description, "Description", :class => "form-label" %>
       <%= f.text_area :description, :class => "form-textarea mid short-height" %>
-      <div class="floating-explanation decription"><span class="yellow-tip"></span>What is this list about?</div>
       </dd>
     </dd>
     <dd class="form-line-item">
@@ -30,9 +28,18 @@
       <%= f.radio_button :style, "bullets" %>
       <%= f.label :style, "Bulleted List" %>
     </dd>
+    
+    <div id="list_items" style="display:none"></div>
     <dd class="form-line-item actions">
       <button class="minimal">Submit</button>
     </dd>
   </dd>
   </dl>
+  <% @list_form = f %>
 <% end %>
+<script type="text/javascript">
+  $('form#new_list').submit(function(e){
+    $('#list_items').html($(".list-items").html());
+    return true;
+  });
+</script>

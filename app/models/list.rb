@@ -4,4 +4,11 @@ class List < ActiveRecord::Base
   
   acts_as_taggable
   
+  validates_presence_of :title, :on => :create, :message => "can't be blank"
+  validates_presence_of :style, :on => :create, :message => "must choose a list style"
+  
+  accepts_nested_attributes_for :list_items
+  
+  validates_presence_of :list_items, :on => :create, :message => "can't be blank"
+  
 end
