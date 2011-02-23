@@ -5,6 +5,12 @@
 <% left_panel_nav %>
 
 <% content_for :left_panel_content do %>
+<ul>
+  <% @lists.each do |list| %>
+    <li><%= list.title %></li>
+  <% end %>
+</ul>
+  
 <% end %>
 
 <% content_for :right_panel_content do %>

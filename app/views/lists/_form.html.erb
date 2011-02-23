@@ -29,7 +29,11 @@
       <%= f.label :style, "Bulleted List" %>
     </dd>
     
-    <div id="list_items" style="display:none"></div>
+    <div id="list_items" style="display:none">
+      <%= f.fields_for :list_items do |list_item_form|  %>
+        <%= list_item_form.hidden_field :body, :class=>"target" %>
+      <% end %>
+    </div>
     <dd class="form-line-item actions">
       <button class="minimal">Submit</button>
     </dd>
@@ -39,7 +43,6 @@
 <% end %>
 <script type="text/javascript">
   $('form#new_list').submit(function(e){
-    $('#list_items').html($(".list-items").html());
     return true;
   });
 </script>

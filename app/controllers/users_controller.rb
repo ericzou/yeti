@@ -28,7 +28,8 @@ class UsersController < ApplicationController
   
   def home
     @user = User.find(params[:id])
-
+    @lists = @user.lists_as_creator
+    
     respond_to do |format|
       format.html {     render :template => "users/home", :layout => "layouts/two_panel_layout" }
       format.xml  { render :xml => @user }

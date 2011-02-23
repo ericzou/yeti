@@ -19,12 +19,11 @@
       </span>
     </li>
   </ul>
-  <%= @list_form.fields_for :list_items do |list_item_form|  %>
-    <ul class="list-items">
+  <ul class="list-items">
     <li class="list-item second-to-last">
       <span class="list-style numbered">1</span>
       <span class="list-item-input">
-        <%= list_item_form.text_field :body, :class => "form-textfield very-long short-height" %> 
+        <input type="textfield", class="form-textfield very-long short-height" id="list_list_items_attributes_0_body_source">
       </span>
       <%= floating_explanation(@list, "list_items.body", "Enter something") %>
       <span class="list-item-body"></span>
@@ -32,14 +31,13 @@
     <li class="list-item last">
       <span class="list-style numbered">2</span>
       <span class="list-item-input">
-        <%= list_item_form.text_field :body, :class => "form-textfield very-long short-height" %> 
+        <input type="textfield", class="form-textfield very-long short-height" id="">
       </span>
       <span class="list-item-body">
         click here to add more
       </span>
     </li>
-    </ul>
-  <% end %>
+  </ul>
   <script type="text/javascript">
   
     $('.field_with_errors input').livequery("blur", function(){
@@ -60,8 +58,12 @@
       $('.description').html($('#list_description').val());
     }, { event : 'keyup'} );
     
+    
     $('.list-item-input input').livequery("keyup", function(){
       $(this).parents(".list-item").find(".list-item-body").html($(this).val());
+      linked_input_id = $(this).attr("id").replace(/_source/, "");
+      console.log($(this).val());
+      $("#"+linked_input_id).val($(this).val());
     });
     
     $('.list-item-input input').livequery("blur", function(){
