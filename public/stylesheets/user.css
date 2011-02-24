@@ -156,15 +156,13 @@
 #main #left-panel-content .lists .list{
   border-bottom: 1px dotted #CCC;
   padding: 5px 10px;
-}
-
-#main #left-panel-content .lists .list.first{
-  margin-top: 5px;
+  cursor: pointer;
 }
 
 #main #left-panel-content .lists .list.blank-state{
   color: #ccc;
   font-style: italic;
+  cursor: default;
 }
 
 #main #left-panel-content .lists .list:hover{

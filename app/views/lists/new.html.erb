@@ -9,16 +9,7 @@
 <% end %>
 
 <% content_for :right_panel_content do %>
-  <h3 class="list-title">List Title</h3>
-  <ul class="list-meta">
-    <li class="description">List Description</li>
-    <li class="tags">
-      <label for="">Tags: </label>
-      <span>
-        tag1, tag2
-      </span>
-    </li>
-  </ul>
+  <%= render :partial => 'list_meta' %>
   <ul class="list-items">
     <li class="list-item second-to-last">
       <span class="list-style numbered">1</span>

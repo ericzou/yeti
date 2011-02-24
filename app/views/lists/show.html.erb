@@ -1,19 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @list.title %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @list.user_id %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @list.description %>
-</p>
+<%= render :partial => 'list_meta' %>
 
 
 <%= link_to 'Edit', edit_list_path(@list) %> |

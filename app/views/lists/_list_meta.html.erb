@@ -1,0 +1,14 @@
+<h3 class="list-title"><%= @list.title || "List Title" %></h3>
+<ul class="list-meta">
+  <li class="description"><%= @list.description || "List Description" %></li>
+  <li class="tags">
+    <label for="">Tags: </label>
+    <span>
+      tag1, tag2
+    </span>
+  </li>
+  <li class-"author">
+    <label for="">Author:</label>
+    <span><%=  @list.creator.name %></span>
+    </li>
+</ul>

@@ -11,7 +11,9 @@
     <dd class="list blank-state">Nothing here</dd>
   <% else %>
     <% @lists_i_created.each_with_index do |list, index| %>
-      <dd class="list <%= index == 0 ? "first" : "" %>"><%= list.title %></dd>
+      <%= content_tag_for :dd, list do %>
+        <%= list.title %>
+      <% end %>
     <% end %>
   <% end %>
 </dl>
@@ -27,7 +29,26 @@
   <% end %>
 </dl>
 
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.list:not(.blank-state)').click(function(e){
+      e.preventDefault();
+      list_id = $(this).attr("id").split("_")[1];
+      console.log(list_id);
+      $.ajax({
+        url : "/lists/" + list_id,
+        type: "get",
+        success : function(data){
+          $('#list-detail').html(data);
+        }
+      })
+    })
+  });
+</script>
+
 <% end %>
 
 <% content_for :right_panel_content do %>
+<div id="list-detail"></div>
 <% end %>

@@ -19,7 +19,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.js # show.html.erb
       format.xml  { render :xml => @list }
     end
   end
@@ -28,6 +28,7 @@ class ListsController < ApplicationController
   # GET /lists/new.xml
   def new
     @list = List.new
+    @list.creator = current_user
     1.times { @list.list_items.build } 
     respond_to do |format|
       format.html # new.html.erb
