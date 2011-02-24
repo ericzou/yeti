@@ -5,12 +5,28 @@
 <% left_panel_nav %>
 
 <% content_for :left_panel_content do %>
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= list.title %></li>
+<dl id="lists-i-created" class="lists">
+  <dt class="lists-title">LISTS I CREATED</dt>
+  <% if @lists_i_created.blank? %>
+    <dd class="list blank-state">Nothing here</dd>
+  <% else %>
+    <% @lists_i_created.each_with_index do |list, index| %>
+      <dd class="list <%= index == 0 ? "first" : "" %>"><%= list.title %></dd>
+    <% end %>
   <% end %>
-</ul>
-  
+</dl>
+
+<dl id="lists-i-am-shared-with" class="lists">
+  <dt class="lists-title">LISTS I AM SHARED WITH</dt>
+  <% if @lists_i_am_shared_with.blank? %>
+    <dd class="list blank-state first">Nothing here yet</dd>
+  <% else %>
+    <% @lists_i_am_shared_with.each_with_index do |list, index| %>
+      <dd class="list <%= index == 0 ? "first" : "" %>"><%= list.title %></dd>
+    <% end %>
+  <% end %>
+</dl>
+
 <% end %>
 
 <% content_for :right_panel_content do %>

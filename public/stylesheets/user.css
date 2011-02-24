@@ -140,6 +140,38 @@
   -moz-border-radius: 5px;
 }
 
+/* -- lists -- */
+#main #left-panel-content .lists{
+  margin: 10px 0 20px;
+}
+
+#main #left-panel-content .lists .lists-title{
+  padding: 5px 10px;
+  background-color: #777;
+  color: white;
+  text-shadow: -1px -1px #333;
+  font-size: 13px;
+}
+
+#main #left-panel-content .lists .list{
+  border-bottom: 1px dotted #CCC;
+  padding: 5px 10px;
+}
+
+#main #left-panel-content .lists .list.first{
+  margin-top: 5px;
+}
+
+#main #left-panel-content .lists .list.blank-state{
+  color: #ccc;
+  font-style: italic;
+}
+
+#main #left-panel-content .lists .list:hover{
+  background-color: #eee;
+}
+
+
 
 
 
