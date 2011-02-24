@@ -5,7 +5,7 @@ class CreateListItems < ActiveRecord::Migration
       t.integer :creator_id
       t.integer :list_id
       t.string :state, :default =>"created"
-
+      
       t.timestamps
     end
   end

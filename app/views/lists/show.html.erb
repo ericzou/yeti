@@ -1,5 +1,5 @@
 <%= render :partial => 'list_meta' %>
 
-
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<ul class="list-items">
+  <%= render :partial => @list.list_items %>
+</ul>
