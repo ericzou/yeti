@@ -35,7 +35,6 @@
     $('.list:not(.blank-state)').click(function(e){
       e.preventDefault();
       list_id = $(this).attr("id").split("_")[1];
-      console.log(list_id);
       $.ajax({
         url : "/lists/" + list_id,
         type: "get",
