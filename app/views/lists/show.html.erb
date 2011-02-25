@@ -2,4 +2,20 @@
 
 <ul class="list-items">
   <%= render :partial => @list.list_items %>
+  <li class="list-item last">
+    <span class="list-style numbered"><%= @list.list_items.size + 1 %></span>
+    <span class="list-item-body">Click here to add more</span>
+  </li>
 </ul>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.list-items').sortable({
+      handle : '.list-style',
+      cursor : 'move', 
+      stop : function(event, ui){
+        // alert("New position: " + ui.item.index());
+      }
+    })
+  });
+</script>

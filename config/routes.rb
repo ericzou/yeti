@@ -1,5 +1,7 @@
 Yeti::Application.routes.draw do
-  resources :lists
+  resources :lists do 
+    resources :list_items
+  end
 
   resources :users do 
     member do 

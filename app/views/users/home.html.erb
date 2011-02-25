@@ -39,6 +39,7 @@
       $.ajax({
         url : "/lists/" + list_id,
         type: "get",
+        dataType: "html",
         success : function(data){
           $('#list-detail').html(data);
         }

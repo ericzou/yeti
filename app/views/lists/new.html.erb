@@ -11,7 +11,7 @@
 <% content_for :right_panel_content do %>
   <%= render :partial => 'list_meta' %>
   <ul class="list-items">
-    <li class="list-item second-to-last">
+    <li class="list-item">
       <span class="list-style numbered">1</span>
       <span class="list-item-input">
         <input type="textfield", class="form-textfield very-long short-height" id="list_list_items_attributes_0_body_source">
@@ -53,7 +53,6 @@
     $('.list-item-input input').livequery("keyup", function(){
       $(this).parents(".list-item").find(".list-item-body").html($(this).val());
       linked_input_id = $(this).attr("id").replace(/_source/, "");
-      console.log($(this).val());
       $("#"+linked_input_id).val($(this).val());
     });
     
