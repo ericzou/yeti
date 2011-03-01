@@ -2,11 +2,14 @@
 
 <ul class="list-items">
   <%= render :partial => @list.list_items %>
-  <li class="list-item last">
-    <span class="list-style numbered"><%= @list.list_items.size + 1 %></span>
-    <span class="list-item-body">Click here to add more</span>
-  </li>
 </ul>
+
+<div id="new-list-item-wrapper">
+  <%  form_for [@list, @list_item] do |f| %>
+  <%= f.text_field :body, :class => "form-textfield minimal-matching-height long"  %>
+  <button class="minimal">Add Item</button>
+  <% end %>
+</div>
 
 <script type="text/javascript">
   $(document).ready(function(){
@@ -16,6 +19,19 @@
       stop : function(event, ui){
         // alert("New position: " + ui.item.index());
       }
-    })
+    });
+    
+    $('form#new_list_item').submit(function(e){
+      e.preventDefault();
+      $.ajax({
+        url : $(this).attr("action"),
+        type: "post",
+        dateType: "html",
+        data: { list_item : { body : $('#list_item_body').val() }},
+        success : function(data){
+          $(".list-items").append(data);
+        }
+      });
+    });
   });
 </script>

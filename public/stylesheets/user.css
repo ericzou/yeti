@@ -141,6 +141,11 @@
   -moz-border-radius: 5px;
 }
 
+#main #right-panel-content #new-list-item-wrapper{
+  border-top: 1px dotted #ccc;
+  padding: 15px 0;
+}
+
 /* -- lists -- */
 #main #left-panel-content .lists{
   margin: 10px 0 20px;

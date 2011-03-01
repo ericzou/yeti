@@ -215,6 +215,11 @@ html[xmlns] .clearfix {
   width: 480px;
 }
 
+.form-textfield.long{
+  width: 360px;
+}
+
+
 .form-textfield.mid,
 .form-textarea{
   width: 238px;
@@ -230,6 +235,10 @@ html[xmlns] .clearfix {
 
 .form-textfield.short-height{
   padding: 5px 5px 5px;
+}
+
+.form-textfield.minimal-matching-height{
+  padding: 7px 5px 6px;
 }
 
 .form-textarea.short-height{

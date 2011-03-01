@@ -17,7 +17,7 @@ class ListsController < ApplicationController
   # GET /lists/1.xml
   def show
     @list = List.find(params[:id])
-
+    @list_item = @list.list_items.build
     respond_to do |format|
       format.js # show.html.erb
       format.xml  { render :xml => @list }

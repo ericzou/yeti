@@ -1,4 +1,5 @@
 <% content_tag_for :li, list_item, :class=>"list-item" do  %>
+  <% next if list_item.new_record? %>
   <span class="list-style numbered"><%= list_item.position %></span>
   <!-- <span class="list-item-input">
     <input type="textfield", class="form-textfield very-long short-height" value="<%= list_item.body %>">
