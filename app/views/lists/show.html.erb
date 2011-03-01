@@ -23,6 +23,9 @@
     
     $('form#new_list_item').submit(function(e){
       e.preventDefault();
+      if ($('#list_item_body').val() === ''){
+        return false;
+      }
       $.ajax({
         url : $(this).attr("action"),
         type: "post",
@@ -30,6 +33,7 @@
         data: { list_item : { body : $('#list_item_body').val() }},
         success : function(data){
           $(".list-items").append(data);
+          $('#list_item_body').val('').focus();
         }
       });
     });

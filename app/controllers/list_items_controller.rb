@@ -12,7 +12,7 @@ class ListItemsController < ApplicationController
       else
         format.js do
           flash[:error] = "Please enter something"
-          render :partial => "layouts/flash"
+          # render something here
         end 
       end
     end
