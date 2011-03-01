@@ -85,8 +85,9 @@ html[xmlns] .clearfix {
 }
 
 #top{
-  background: transparent url(/images/header.gif) repeat-x;
-  height: 80px;
+  xbackground: transparent url(/images/header.gif) repeat-x;
+  background-color: #777;
+  height: 60px;
 }
 
 #top #header{
@@ -96,13 +97,13 @@ html[xmlns] .clearfix {
 }
 
 #logo{
-  padding-top: 25px;
+  padding-top: 15px;
 }
 
 #login,
 #user-menu{
   position: absolute;
-  top: 15px;
+  top: 5px;
   right: -40px;
 }
 
@@ -246,6 +247,14 @@ html[xmlns] .clearfix {
   color: #fff;
   padding: 5px;
 }
+
+.form-textfield.black{
+  background-color: #333;
+  border: 1px solid #aaa;
+  color: #fff;
+  padding: 5px;
+}
+
 
 .floating-explanation{
   padding: 5px;

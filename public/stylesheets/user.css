@@ -17,7 +17,8 @@
   float: left;
 }
 
-#search-or-create #create-a-list{
+#search-or-create #create-a-list,
+#search-or-create #browse-lists{
   margin-left: 25px;
 }
 

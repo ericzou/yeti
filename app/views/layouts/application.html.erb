@@ -23,9 +23,9 @@
       <div id="tag-line" style="color: white; font-family: arial; font-size: 36px; padding-top: 25px; text-shadow: #333 -1px -1px;"></div>
       <% if current_user %>
         <%= render :partial => 'layouts/user_menu' %>
-        <ul id="global-nav">
+        <!-- <ul id="global-nav">
           <li class="browse"><a href="#">Browse</a></li>
-        </ul>
+        </ul> -->
       <% else %>
         <%= render :partial => 'layouts/login_header' %>
       <% end %>
