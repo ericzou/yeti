@@ -38,7 +38,7 @@
         
       },
       drop: function(event, ui){
-        $(ui.draggable).hide();
+        $(ui.draggable).remove();
         var list_item_id = $(ui.draggable).attr("id").replace(/list_item_/, "");
         $.ajax({
           url: "/lists/" + <%= @list.id %> + "/list_items/" + list_item_id,
