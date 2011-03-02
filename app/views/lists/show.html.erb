@@ -17,7 +17,15 @@
       handle : '.list-style',
       cursor : 'move', 
       stop : function(event, ui){
-        // alert("New position: " + ui.item.index());
+        $.ajax({
+          url: "<%= sort_list_list_items_path(@list) %>",
+          type: "put", 
+          dataType: "html",
+          data: $(this).sortable('serialize'),
+          success: function(data){
+            $(".list-items").html(data);
+          }
+        })
       }
     });
     

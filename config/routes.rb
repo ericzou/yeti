@@ -1,6 +1,10 @@
 Yeti::Application.routes.draw do
   resources :lists do 
-    resources :list_items
+    resources :list_items do 
+      collection do 
+        put "sort"
+      end
+    end
   end
 
   resources :users do 

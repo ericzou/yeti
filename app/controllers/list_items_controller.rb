@@ -17,4 +17,15 @@ class ListItemsController < ApplicationController
       end
     end
   end
+  
+  def sort
+    @list = List.find_by_id(params[:list_id])
+    params[:list_item].each_with_index do | id, index |
+      @list.list_items.update_all(["position=?", index+1], ["id=?", id])
+    end
+    respond_to do |format|
+      format.js { render(:partial => @list.list_items) }
+    end
+  end
+  
 end
