@@ -34,8 +34,7 @@ class ListItemsController < ApplicationController
     @list_item.remove_from_list
     @list_item.destroy
     respond_to do |format|
-      # format.js { render :partial =>  @list.list_items }
-      format.js { render :nothing =>  true }
+      format.js { render :partial =>  @list.list_items }
     end  
   end
 end
