@@ -27,5 +27,15 @@ class ListItemsController < ApplicationController
       format.js { render(:partial => @list.list_items) }
     end
   end
-  
+
+  def destroy
+    @list_item = ListItem.find(params[:id])
+    @list = @list_item.list
+    @list_item.remove_from_list
+    @list_item.destroy
+    respond_to do |format|
+      # format.js { render :partial =>  @list.list_items }
+      format.js { render :nothing =>  true }
+    end  
+  end
 end

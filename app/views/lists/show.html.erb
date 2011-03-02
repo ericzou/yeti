@@ -1,7 +1,9 @@
 <%= render :partial => 'list_meta' %>
 
+<div id="trash-can" style="background: transparent url(/images/icons/trash.png) no-repeat; width:24px; height:24px; padding: 10px; position: absolute; right: 0; top: 15px;"></div>    
+
 <ul class="list-items">
-  <%= render :partial => @list.list_items %>
+  <%= render :partial => @list.list_items %>  
 </ul>
 
 <div id="new-list-item-wrapper">
@@ -25,10 +27,30 @@
           success: function(data){
             $(".list-items").html(data);
           }
-        })
+        });
       }
     });
     
+    // $('.list-item').draggable();
+    $('#trash-can').droppable({
+      tolerance: "pointer",
+      over: function(){
+        
+      },
+      drop: function(event, ui){
+        $(ui.draggable).hide();
+        var list_item_id = $(ui.draggable).attr("id").replace(/list_item_/, "");
+        $.ajax({
+          url: "/lists/" + <%= @list.id %> + "/list_items/" + list_item_id,
+          type: "delete", 
+          dataType: "html",
+          data: { id : list_item_id},
+          success: function(data){
+            // $(".list-items").html(data);
+          }
+        });
+      }
+    });
     $('form#new_list_item').submit(function(e){
       e.preventDefault();
       if ($('#list_item_body').val() === ''){
