@@ -133,12 +133,14 @@
   font-style: italic;
 }
 
+#main #right-panel-content .list-style{
+  cursor: pointer;  
+}
+
 #main #right-panel-content .list-style.numbered{
   font-size: 16px;
   font-weight: bold;
   margin-right: 15px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
 }
 
 #main #right-panel-content #new-list-item-wrapper{
@@ -176,7 +178,21 @@
 }
 
 
+/* trash can */
+#trash-can{
+  background: transparent url(/images/icons/trash.png) no-repeat; 
+  width:24px; height:24px; 
+  padding: 10px; 
+  position: absolute; right: 0; top: 15px;
+}
 
+#trash-can.activated{
+  background: transparent url(/images/icons/trash_activated.png) no-repeat;
+}
+
+#trash-can.over{
+  background: transparent url(/images/icons/trash_over.png) no-repeat;
+}
 
 
 

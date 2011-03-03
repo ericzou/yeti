@@ -1,6 +1,6 @@
 <%= render :partial => 'list_meta' %>
 
-<div id="trash-can" style="background: transparent url(/images/icons/trash.png) no-repeat; width:24px; height:24px; padding: 10px; position: absolute; right: 0; top: 15px;"></div>    
+<div id="trash-can" style=""></div>    
 
 <ul class="list-items">
   <%= render :partial => @list.list_items %>  
@@ -31,11 +31,19 @@
       }
     });
     
-    // $('.list-item').draggable();
     $('#trash-can').droppable({
       tolerance: "pointer",
+      activate: function(){
+        $('#trash-can').remove("over");
+        $('#trash-can').addClass("activated");
+      },
       over: function(){
-        
+        $('#trash-can').removeClass("activated");
+        $('#trash-can').addClass("over");
+      },
+      deactivate: function(){
+        $('#trash-can').removeClass("activated");
+        $('#trash-can').removeClass("over");
       },
       drop: function(event, ui){
         $(ui.draggable).remove();
