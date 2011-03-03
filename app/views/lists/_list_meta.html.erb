@@ -10,6 +10,8 @@
   <li class-"author">
     <label for="">Author:</label>
     <span><%=  @list.creator.name %></span>
-    <span class="created_at">created <%= time_ago_in_words(@list.created_at) %> ago</span>
+    <% if !@list.new_record? %>
+      <span class="created_at">created <%= time_ago_in_words(@list.created_at) %> ago</span>
+    <% end %>
   </li>
 </ul>
