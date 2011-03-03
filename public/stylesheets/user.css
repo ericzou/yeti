@@ -99,6 +99,13 @@
   margin-bottom: 15px;
 }
 
+#main #right-panel-content .list-meta .created_at{
+  font-style: italic;
+  color: #aaa;
+  font-size: 12px;
+}
+
+
 #main #right-panel-content .list-item{
   margin-bottom: 15px;
   position: relative;
