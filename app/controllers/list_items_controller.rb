@@ -37,4 +37,12 @@ class ListItemsController < ApplicationController
       format.js { render :partial =>  @list.list_items }
     end  
   end
+  
+  def batch_destroy
+    @list = List.find_by_id(params[:list_id])
+    params[:list_item_id].each { |i| ListItem.find_by_id(i).destroy }
+    respond_to do |format|
+      format.js { render :partial =>  @list.list_items }
+    end  
+  end
 end

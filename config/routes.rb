@@ -3,6 +3,7 @@ Yeti::Application.routes.draw do
     resources :list_items do 
       collection do 
         put "sort"
+        delete "batch_destroy"
       end
     end
   end

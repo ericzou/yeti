@@ -1,3 +1,5 @@
+<%= render :partial => 'list_actions' %>
+
 <%= render :partial => 'list_meta' %>
 
 <div id="trash-can" style=""></div>    
@@ -15,8 +17,8 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
+  
     $('.list-items').sortable({
-      handle : '.list-style',
       cursor : 'move', 
       stop : function(event, ui){
         $.ajax({

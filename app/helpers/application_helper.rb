@@ -2,10 +2,8 @@ module ApplicationHelper
   
   def left_panel_nav(selected="my-lists")
     content_for :left_panel_nav do 
-      puts "1"
       html = ""
       if current_user 
-        puts "2"
         html << content_tag(:li, :class=>"my-lists #{selected == "my-lists" ? "selected" : "" }") do
           link_to "My Lists", home_user_path(current_user)
         end
@@ -14,14 +12,12 @@ module ApplicationHelper
           link_to "Create New List", new_list_path
         end
       end
-      puts "3", html
       html
     end
   end
-  
+    
   def floating_explanation(obj, attribute, msg)
     err = obj.errors[attribute].any? ? true : false
-    puts "**********", attribute, obj.errors.inspect
     html = content_tag(:div, :class=>"floating-explanation title #{ err ? 'wrong' : '' }") do       
       if err
         m = attribute.to_s.titleize + " " + obj.errors[attribute][0]
