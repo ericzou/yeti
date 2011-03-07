@@ -55,4 +55,11 @@ Yeti::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  
+  config.middleware.use "::ExceptionNotifier",
+    :email_prefix => "Yeti -- #{Rails.env} -- Exception ",
+    :sender_address => %{"notifier" <notifier@yeti.com>},
+    :exception_recipients => %w{ericzou@eqlink.com emily.yee@gmail.com christopher.s.wong@gmail.com }
+
 end
