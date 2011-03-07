@@ -9,7 +9,7 @@
 </div>
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.button.delete').livequery("click", function(){
+    $('.button.delete').bind("click", function(){
       if ($('.list-item input[type=checkbox]:checked').length === 0){
         $('#action-msg').removeClass("success").addClass("error").html("Please select a list item").show();
       }else{
