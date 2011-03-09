@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
   
   def home
-    @user = User.find(params[:id])
+    @user = current_user
     @lists_i_created = @user.lists_as_creator
     
     respond_to do |format|
