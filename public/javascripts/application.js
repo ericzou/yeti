@@ -22,7 +22,7 @@ $(document).ready(function(){
     }, 
 
     clone_list_item : function(list_item){
-      var n = $(list_item).find(".list-style.numbered").html();
+      var n = $(list_item).find(".list-style.numbers").html();
       var m = n - 1;
       var linked_clone_id = "list_list_items_attributes_" + m + "_body"
       var linked_clone_name = "list[list_items_attributes][" + m + "][body]"
@@ -39,8 +39,8 @@ $(document).ready(function(){
       // console.log($(the_clone).find(".list-item-input input").attr("id"));
       $(the_clone).find(".list-item-input").hide();
       $(the_clone).find(".list-item-body").show();
-      if ( $(list_item).find(".list-style.numbered").val() !== undefined ){
-        $(the_clone).find(".list-style.numbered").html( parseInt(n) + 1);
+      if ( $(list_item).find(".list-style.numbers").val() !== undefined ){
+        $(the_clone).find(".list-style.numbers").html( parseInt(n) + 1);
       } 
     }
   }

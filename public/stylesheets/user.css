@@ -217,11 +217,28 @@
   cursor: pointer;  
 }
 
-#main #right-panel-content .list-style.numbered{
+#main #right-panel-content .list-style.numbers{
   font-size: 16px;
   font-weight: bold;
   margin-right: 15px;
 }
+
+#main #right-panel-content .list-style.bullets{
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 15px;
+  text-indent: -9999px;
+  background-color: #333;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #CCC;
+  vertical-align: 1%;
+  display:-moz-inline-stack;
+  display:inline-block;
+  zoom:1;
+  *display:inline;
+}
+
 
 #main #right-panel-content #new-list-item-wrapper{
   border-top: 1px dotted #ccc;

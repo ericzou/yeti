@@ -12,7 +12,7 @@
   <%= render :partial => 'list_meta' %>
   <ul class="list-items">
     <li class="list-item">
-      <span class="list-style numbered">1</span>
+      <span class="list-style numbers">1</span>
       <span class="list-item-input">
         <input type="textfield", class="form-textfield very-long short-height" id="list_list_items_attributes_0_body_source">
       </span>
@@ -20,7 +20,7 @@
       <span class="list-item-body"></span>
     </li>      
     <li class="list-item last">
-      <span class="list-style numbered">2</span>
+      <span class="list-style numbers">2</span>
       <span class="list-item-input">
         <input type="textfield", class="form-textfield very-long short-height" id="">
       </span>
@@ -76,8 +76,15 @@
     $('.list-item.last').livequery("click", function(){
       Yeti.clone_list_item(this);
     });
+    
     var data = "<%= @tags %>".split(", ");
     $('#list_tag_list').autocomplete(data, { multiple : true })
     
+    $('#list_style_bullets').click(function(){
+        $('.list-items .list-item .list-style').removeClass("numbers").addClass("bullets");
+    });
+    $('#list_style_numbers').click(function(){
+      $('.list-items .list-item .list-style').removeClass("bullets").addClass("numbers");
+    });
   </script>
 <% end %>
