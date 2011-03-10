@@ -4,7 +4,7 @@
   <li class="tags">
     <label for="">Tags: </label>
     <span>
-      tag1, tag2
+      <%= @list.tag_list.blank? ? "tag1, tag2" : @list.tag_list.join(", ") %>
     </span>
   </li>
   <li class-"author">

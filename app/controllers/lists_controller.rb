@@ -30,6 +30,7 @@ class ListsController < ApplicationController
     @list = List.new
     @list.creator = current_user
     1.times { @list.list_items.build } 
+    @tags = ActsAsTaggableOn::Tag.all.map(&:name).join(", ")
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @list }

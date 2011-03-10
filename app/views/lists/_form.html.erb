@@ -11,6 +11,12 @@
       <%= f.text_area :description, :class => "form-textarea mid short-height" %>
       </dd>
     </dd>
+    
+    <dd class="form-line-item">
+      <%= f.label :tag_list, "Add tags", :class => "form-label" %>
+      <%= f.text_field :tag_list, :class => "form-textfield mid short-height"%>
+    </dd>
+    
     <dd class="form-line-item">
       <%= f.label :style, "Choose a list style", :class => "form-label" %>
       <%= f.radio_button :style, "numbers" %>  

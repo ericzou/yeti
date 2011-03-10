@@ -49,6 +49,9 @@
       $('.description').html($('#list_description').val());
     }, { event : 'keyup'} );
     
+    $('#list_tag_list').delayedObserver(0.5, function(){
+      $('.tags span').html($('#list_tag_list').val().replace(/, $/, ""));
+    }, { event : 'keyup'});
     
     $('.list-item-input input').livequery("keyup", function(){
       $(this).parents(".list-item").find(".list-item-body").html($(this).val());
@@ -73,6 +76,8 @@
     $('.list-item.last').livequery("click", function(){
       Yeti.clone_list_item(this);
     });
+    var data = "<%= @tags %>".split(", ");
+    $('#list_tag_list').autocomplete(data, { multiple : true })
     
   </script>
 <% end %>
