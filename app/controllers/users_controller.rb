@@ -31,6 +31,8 @@ class UsersController < ApplicationController
     @lists_i_created = @user.lists_as_creator
     @list = List.find_by_id(params[:list_id]) || @user.lists_as_creator.last
     @list_item = @list.list_items.build
+    @tags = Tag.all.map(&:name).join(", ")
+    
     respond_to do |format|
       format.html {     render :template => "users/home", :layout => "layouts/two_panel_layout" }
       format.xml  { render :xml => @user }
