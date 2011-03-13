@@ -69,11 +69,6 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     
-    # bug in acts as taggable https://github.com/mbleigh/acts-as-taggable-on/issues#issue/95
-    tag_list = params[:list].delete(:tag_list)
-    @list.tag_list = tag_list
-    @list.save_tags
-    
     respond_to do |format|
       if @list.update_attributes(params[:list])
         format.html { redirect_to(home_user_path(current_user, :list_id => @list.id), :notice => 'List was successfully updated.') }

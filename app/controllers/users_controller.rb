@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     @list = List.find_by_id(params[:list_id]) || @user.lists_as_creator.last
     @list_item = @list.list_items.build
     @tags = Tag.all.map(&:name).join(", ")
-    
+    @edit_mode = true
     respond_to do |format|
       format.html {     render :template => "users/home", :layout => "layouts/two_panel_layout" }
       format.xml  { render :xml => @user }

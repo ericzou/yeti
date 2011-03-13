@@ -217,7 +217,7 @@ module ActsAsTaggableOn::Taggable
         super(*args)
       end
 
-      def save_tags
+      def save_tags  
         tagging_contexts.each do |context|
           next unless tag_list_cache_set_on(context)
 
@@ -230,8 +230,11 @@ module ActsAsTaggableOn::Taggable
           old_tags     = current_tags - tag_list
           new_tags     = tag_list     - current_tags
           
-          # Find taggings to remove:
-          old_taggings = taggings.where(:tagger_type => nil, :tagger_id => nil,
+          # Find taggings to remove:   
+          # bug fix for https://github.com/mbleigh/acts-as-taggable-on/issues#issue/95
+          # old_taggings = taggings.where(:tagger_type => nil, :tagger_id => nil,
+          #                               :context => context.to_s, :tag_id => old_tags).all
+          old_taggings = ActsAsTaggableOn::Tagging.where(:tagger_type => nil, :tagger_id => nil,
                                         :context => context.to_s, :tag_id => old_tags).all
 
           if old_taggings.present?
@@ -240,9 +243,14 @@ module ActsAsTaggableOn::Taggable
           end
 
           # Create new taggings:
+          # new_tags.each do |tag|
+          #   taggings.create!(:tag_id => tag.id, :context => context.to_s, :taggable => self)
+          # end
+          
           new_tags.each do |tag|
-            taggings.create!(:tag_id => tag.id, :context => context.to_s, :taggable => self)
+            ActsAsTaggableOn::Tagging.create!(:tag_id => tag.id, :context => context.to_s, :taggable => self)
           end
+          
         end
 
         true
