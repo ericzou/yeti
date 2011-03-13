@@ -49,5 +49,7 @@
 <% end %>
 
 <% content_for :right_panel_content do %>
-<div id="list-detail"></div>
+<div id="list-detail">
+  <%= render :partial => "lists/show" %>
+</div>
 <% end %>

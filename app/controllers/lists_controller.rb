@@ -1,6 +1,11 @@
 class ListsController < ApplicationController
   
   layout "two_panel_layout"
+  before_filter :common_actions
+  
+  def common_actions
+    @tags = Tag.all.map(&:name).join(", ")
+  end  
   
   # GET /lists
   # GET /lists.xml
@@ -18,8 +23,9 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @list_item = @list.list_items.build
+    @edit_mode = true
     respond_to do |format|
-      format.js # show.html.erb
+      format.js { render :partial => "lists/show" }# show.html.erb
       format.xml  { render :xml => @list }
     end
   end
@@ -30,7 +36,7 @@ class ListsController < ApplicationController
     @list = List.new
     @list.creator = current_user
     1.times { @list.list_items.build } 
-    @tags = ActsAsTaggableOn::Tag.all.map(&:name).join(", ")
+    @tags = Tag.all.map(&:name).join(", ")
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @list }
@@ -62,10 +68,15 @@ class ListsController < ApplicationController
   # PUT /lists/1.xml
   def update
     @list = List.find(params[:id])
-
+    
+    # bug in acts as taggable https://github.com/mbleigh/acts-as-taggable-on/issues#issue/95
+    tag_list = params[:list].delete(:tag_list)
+    @list.tag_list = tag_list
+    @list.save_tags
+    
     respond_to do |format|
       if @list.update_attributes(params[:list])
-        format.html { redirect_to(@list, :notice => 'List was successfully updated.') }
+        format.html { redirect_to(home_user_path(current_user, :list_id => @list.id), :notice => 'List was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

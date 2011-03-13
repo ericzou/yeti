@@ -25,15 +25,20 @@
       <%= f.label :style, "Bulleted List" %>
     </dd>
     
+    <% if !@edit_mode %>
     <div id="list_items" style="display:none">
       <%= f.fields_for :list_items do |list_item_form|  %>
         <%= list_item_form.hidden_field :body, :class=>"target" %>
       <% end %>
     </div>
+    <% end %>
     <dd class="form-line-item actions">
-      <button class="minimal">Create List & Save</button>
+      <button class="minimal">Save List</button>
     </dd>
   </dd>
   </dl>
-  <% @list_form = f %>
 <% end %>
+<script type="text/javascript">
+  var data = "<%= @tags %>".split(", ");
+  $('#list_tag_list').autocomplete(data, { multiple : true })
+</script>

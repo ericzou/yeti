@@ -3,9 +3,19 @@
     <li class="action first button share">Share</li>
     <li class="action button archive">Archive</li>
     <li class="action button delete">Delete</li>
-    <li class="action button last tag">Tag</li>
+    <li class="action button last tag jqModal edit">Edit</li>
   </ul>  
   <div id="action-msg" class=""></div>
+  <div id="list-edit-modal" class="modal jqmDialog">
+    <div class="modal-bg"></div>
+    <div class="modal-content">
+      <p>
+        <%= render 'form' %>
+      </p>
+    </div>
+    <div class="modal-actions">
+    </div>
+  </div>
 </div>
 <script type="text/javascript">
   $(document).ready(function(){
@@ -30,4 +40,5 @@
       }
     });
   });
+  $('#list-edit-modal').jqm();
 </script>

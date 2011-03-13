@@ -1,6 +1,6 @@
-<%= render :partial => 'list_actions' %>
+<%= render :partial => 'lists/list_actions' %>
 
-<%= render :partial => 'list_meta' %>
+<%= render :partial => 'lists/list_meta' %>
 
 <div id="trash-can" style=""></div>    
 
@@ -65,6 +65,7 @@
         });
       }
     });
+    
     $('form#new_list_item').submit(function(e){
       e.preventDefault();
       if ($('#list_item_body').val() === ''){

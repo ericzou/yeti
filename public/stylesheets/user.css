@@ -117,7 +117,7 @@
   border-bottom: 1px solid #ccc;
   border-right: 1px solid #eee;
   background: -webkit-gradient(linear,0% 40%,0% 70%,from(#F9F9F9),to(#E3E3E3));
-  background: -moz-linear-gradient(top,from(#F9F9F9),to(#E3E3E3));
+  background: -moz-linear-gradient(top, #F9F9F9, #E3E3E3);
 }
 
 #main #list-actions li.action.first{
@@ -133,7 +133,7 @@
 
 #main #list-actions li:active{
   background: -webkit-gradient(linear,0% 40%,0% 70%,from(#E3E3E3),to(#F9F9F9));
-  background: -moz-linear-gradient(top,from(#e3e3e3),to(#F9F9F9));
+  background: -moz-linear-gradient(top, #e3e3e3,#F9F9F9);
 }
 
 #main #list-actions li.action.last{

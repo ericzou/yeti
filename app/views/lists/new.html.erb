@@ -77,9 +77,6 @@
       Yeti.clone_list_item(this);
     });
     
-    var data = "<%= @tags %>".split(", ");
-    $('#list_tag_list').autocomplete(data, { multiple : true })
-    
     $('#list_style_bullets').click(function(){
         $('.list-items .list-item .list-style').removeClass("numbers").addClass("bullets");
     });
