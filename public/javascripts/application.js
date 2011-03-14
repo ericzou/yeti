@@ -42,7 +42,23 @@ $(document).ready(function(){
       if ( $(list_item).find(".list-style.numbers").val() !== undefined ){
         $(the_clone).find(".list-style.numbers").html( parseInt(n) + 1);
       } 
+    },
+    
+    add_list_item : function(i, body, style){
+      var list_item_id = "list_list_items_attributes_" + (i-1) + "_body_source";
+      var a = $("<li class='list-item'>")
+        .append("<span class='list-style " + style + "'>" + i + "</span>")
+        .append("<span class='list-item-body show-inline' id='"+ list_item_id + "'>" + body + "</span>");
+      return a;
+    },
+    
+    add_linked_list_item : function(i, body, style){
+      var list_item_id = "list_list_items_attributes_" + (i-1); 
+      var dom = $("<input class='target' id='"+ list_item_id +"' name='list[list_items_attributes]["+ (i-1) +"][body]' type='hidden'/>");
+      $(dom).val(body);
+      return dom;
     }
+    
   }
   
   $('#flash_message .notice').livequery(function(){

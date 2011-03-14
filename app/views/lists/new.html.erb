@@ -11,33 +11,78 @@
 <% content_for :right_panel_content do %>
   <%= render :partial => 'list_meta' %>
   <ul class="list-items">
-    <li class="list-item">
-      <span class="list-style numbers">1</span>
-      <span class="list-item-input">
-        <input type="textfield", class="form-textfield very-long short-height" id="list_list_items_attributes_0_body_source">
-      </span>
-      <%= floating_explanation(@list, "list_items.body", "Enter something") %>
-      <span class="list-item-body"></span>
-    </li>      
-    <li class="list-item last">
-      <span class="list-style numbers">2</span>
-      <span class="list-item-input">
-        <input type="textfield", class="form-textfield very-long short-height" id="">
-      </span>
-      <span class="list-item-body">
-        click here to add more
-      </span>
-    </li>
+    <li class="blank-state list-item">No list item yet, try add one</li>
   </ul>
+  <div id="add-list-item-wrapper">
+    <form action="">
+      <span class="list-style numbers">1</span>
+      <input type="textfield", class="form-textfield long minimal-matching-height">
+      <button class="minimal">Add Item</button>
+    </form>
+  </div>
+  <!-- <ul class="list-items">
+      <li class="list-item">
+        <span class="list-style numbers">1</span>
+        <span class="list-item-input">
+          <input type="textfield", class="form-textfield very-long short-height" id="list_list_items_attributes_0_body_source">
+        </span>
+        <%= floating_explanation(@list, "list_items.body", "Enter something") %>
+        <span class="list-item-body"></span>
+      </li>      
+      <li class="list-item last">
+        <span class="list-style numbers">2</span>
+        <span class="list-item-input">
+          <input type="textfield", class="form-textfield very-long short-height" id="">
+        </span>
+        <span class="list-item-body">
+          click here to add more
+        </span>
+      </li>
+    </ul> -->
   <script type="text/javascript">
   
+    $('#add-list-item-wrapper form').submit(function(e){
+      e.preventDefault();
+      
+      //1. add list item right panel
+      var body = $('#add-list-item-wrapper input').val();
+      if (Yeti.isEmpty(body)){
+        return
+      };
+      var style;
+      if ( $('#list_style_bullets:checked').length === 0 ){
+        style = "numbers";
+      }else{
+        style = "bullets";
+      }
+      var i = $(".list-items .list-item:not('.blank-state')").length;
+      if (i === 0 ){
+        $('.list-items').html(Yeti.add_list_item(1, body, style));
+      }else{
+        $('.list-items').append(Yeti.add_list_item(i+1, body, style)); 
+      }
+
+      //2. add hidden list item right panel 
+      if (i === 0){
+        $('#list_items').html(Yeti.add_linked_list_item(1, body, style));
+      }else{
+        $('#list_items').append(Yeti.add_linked_list_item(i+1, body, style));  
+      }
+      
+      
+      $('#add-list-item-wrapper .list-style').html(i+2);
+      $('#add-list-item-wrapper input').val("");
+    });
+    
     $('.field_with_errors input').livequery("blur", function(){
-      if ($(this).val() !== ""){          $(this).parents(".field_with_errors").next('.floating-explanation').fadeOut();
+      if ($(this).val() !== ""){          
+        $(this).parents(".field_with_errors").next('.floating-explanation').fadeOut();
       }
     });
     
     $('.list-item .field_with_errors input').livequery("blur", function(){
-      if ($(this).val() !== ""){          $(this).parents(".list-item").find('.floating-explanation').fadeOut();
+      if ($(this).val() !== ""){         
+         $(this).parents(".list-item").find('.floating-explanation').fadeOut();
       }
     });
     
@@ -78,10 +123,10 @@
     });
     
     $('#list_style_bullets').click(function(){
-        $('.list-items .list-item .list-style').removeClass("numbers").addClass("bullets");
+        $('.list-item .list-style, #add-list-item-wrapper .list-style').removeClass("numbers").addClass("bullets");
     });
     $('#list_style_numbers').click(function(){
-      $('.list-items .list-item .list-style').removeClass("bullets").addClass("numbers");
+      $('.list-item .list-style, #add-list-item-wrapper .list-style').removeClass("bullets").addClass("numbers");
     });
   </script>
 <% end %>

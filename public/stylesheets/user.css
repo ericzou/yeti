@@ -240,7 +240,8 @@
 }
 
 
-#main #right-panel-content #new-list-item-wrapper{
+#main #right-panel-content #new-list-item-wrapper,
+#main #right-panel-content #add-list-item-wrapper{
   border-top: 1px dotted #ccc;
   padding: 15px 0;
 }
