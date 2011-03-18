@@ -21,29 +21,6 @@ $(document).ready(function(){
       }
     }, 
 
-    clone_list_item : function(list_item){
-      var n = $(list_item).find(".list-style.numbers").html();
-      var m = n - 1;
-      var linked_clone_id = "list_list_items_attributes_" + m + "_body"
-      var linked_clone_name = "list[list_items_attributes][" + m + "][body]"
-      linked_clone = $("#list_items").append("<input class='target' id='" + linked_clone_id +  
-      "' name='" + linked_clone_name + "' type='hidden' value=''>");
-
-      $(list_item).find(".list-item-input input").attr("id", linked_clone_id+"_source");
-      
-      the_clone = $(list_item).clone().insertAfter($(list_item));
-      
-      // var new_id = $(list_item).attr("id").gsub(/_(\d+)/, \1+1)
-      $(list_item).removeClass("last");
-      $(the_clone).addClass("last");
-      // console.log($(the_clone).find(".list-item-input input").attr("id"));
-      $(the_clone).find(".list-item-input").hide();
-      $(the_clone).find(".list-item-body").show();
-      if ( $(list_item).find(".list-style.numbers").val() !== undefined ){
-        $(the_clone).find(".list-style.numbers").html( parseInt(n) + 1);
-      } 
-    },
-    
     add_list_item : function(i, body, style){
       var list_item_id = "list_list_items_attributes_" + (i-1) + "_body_source";
       var a = $("<li class='list-item'>")

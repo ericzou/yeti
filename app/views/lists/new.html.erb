@@ -11,7 +11,7 @@
 <% content_for :right_panel_content do %>
   <%= render :partial => 'list_meta' %>
   <ul class="list-items">
-    <li class="blank-state list-item">No list item yet, try add one</li>
+    <li class="blank-state list-item <%= list_items_blank?(@list) ? "error" : "" %>">No list item yet, try add one</li>
   </ul>
   <div id="add-list-item-wrapper">
     <form action="">
@@ -20,25 +20,7 @@
       <button class="minimal">Add Item</button>
     </form>
   </div>
-  <!-- <ul class="list-items">
-      <li class="list-item">
-        <span class="list-style numbers">1</span>
-        <span class="list-item-input">
-          <input type="textfield", class="form-textfield very-long short-height" id="list_list_items_attributes_0_body_source">
-        </span>
-        <%= floating_explanation(@list, "list_items.body", "Enter something") %>
-        <span class="list-item-body"></span>
-      </li>      
-      <li class="list-item last">
-        <span class="list-style numbers">2</span>
-        <span class="list-item-input">
-          <input type="textfield", class="form-textfield very-long short-height" id="">
-        </span>
-        <span class="list-item-body">
-          click here to add more
-        </span>
-      </li>
-    </ul> -->
+ 
   <script type="text/javascript">
   
     $('#add-list-item-wrapper form').submit(function(e){
@@ -69,7 +51,6 @@
         $('#list_items').append(Yeti.add_linked_list_item(i+1, body, style));  
       }
       
-      
       $('#add-list-item-wrapper .list-style').html(i+2);
       $('#add-list-item-wrapper input').val("");
     });
@@ -77,12 +58,6 @@
     $('.field_with_errors input').livequery("blur", function(){
       if ($(this).val() !== ""){          
         $(this).parents(".field_with_errors").next('.floating-explanation').fadeOut();
-      }
-    });
-    
-    $('.list-item .field_with_errors input').livequery("blur", function(){
-      if ($(this).val() !== ""){         
-         $(this).parents(".list-item").find('.floating-explanation').fadeOut();
       }
     });
     
@@ -97,30 +72,6 @@
     $('#list_tag_list').delayedObserver(0.5, function(){
       $('.tags span').html($('#list_tag_list').val().replace(/, $/, ""));
     }, { event : 'keyup'});
-    
-    $('.list-item-input input').livequery("keyup", function(){
-      $(this).parents(".list-item").find(".list-item-body").html($(this).val());
-      linked_input_id = $(this).attr("id").replace(/_source/, "");
-      $("#"+linked_input_id).val($(this).val());
-    });
-    
-    $('.list-item-input input').livequery("blur", function(){
-      if (Yeti.isEmpty($(this).val()) ){
-        return
-      };
-      $(this).parents(".list-item-input").hide();
-      $(this).parents(".list-item").find(".list-item-body").show();
-    });
-
-    $('.list-item-body').livequery("click", function(){
-      $(this).hide();
-      $(this).parents(".list-item").find(".list-item-input").show();
-      $(this).parents(".list-item").find(".list-item-input input").focus();
-    });
-    
-    $('.list-item.last').livequery("click", function(){
-      Yeti.clone_list_item(this);
-    });
     
     $('#list_style_bullets').click(function(){
         $('.list-item .list-style, #add-list-item-wrapper .list-style').removeClass("numbers").addClass("bullets");

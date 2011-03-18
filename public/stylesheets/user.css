@@ -173,44 +173,23 @@
   font-size: 12px;
 }
 
-
 #main #right-panel-content .list-item{
   margin-bottom: 15px;
   position: relative;
 }
 
+#main #right-panel-content .list-item.blank-state{
+  color: #ccc;
+  font-style: italic;
+}
+
+#main #right-panel-content .list-item.blank-state.error{
+  color: #f45335;
+}
+
+
 #main #right-panel-content .list-item:hover{
   cursor: default;
-}
-
-
-#main #right-panel-content .list-item .floating-explanation{
-  margin-bottom: 15px;
-  top: -5px;
-  left: 540px;
-}
-
-#main #right-panel-content .list-item .field_with_errors{
-  position: absolute;
-  top: -5px;
-  left: 20px;
-}
-
-
-#main #right-panel-content .list-item-body{
-  font-size: 16px;
-  display: none;
-}
-
-#main #right-panel-content .list-item.last .list-item-input{
-  display: none;
-}
-
-#main #right-panel-content .list-item.last .list-item-body{
-  font-size: 16px;
-  display: inline;
-  color: #777;
-  font-style: italic;
 }
 
 #main #right-panel-content .list-style{
