@@ -25,6 +25,13 @@
       <%= f.label :style, "Bulleted List" %>
     </dd>
     
+    <dd class="form-line-item">
+      <%= f.label :public, "Visibility", :class => "form-label" %>
+      <%= f.radio_button :public, true %>  
+      <%= f.label :public, "Public" %>
+      <%= f.radio_button :public, false %>
+      <%= f.label :public, "Private" %>
+    </dd>
     <% if !@edit_mode %>
     <div id="list_items" style="display:none">
       <%= f.fields_for :list_items do |list_item_form|  %>

@@ -240,9 +240,17 @@
 
 #main #left-panel-content .lists .list{
   border-bottom: 1px dotted #CCC;
-  padding: 5px 10px;
+  padding: 5px 10px 5px 30px;
   cursor: pointer;
 }
+
+#main #left-panel-content .lists .list.public{
+  background: transparent url(/images/icons/fugue/report.png) no-repeat 8px center;
+}
+#main #left-panel-content .lists .list.private{
+  background: transparent url(/images/icons/fugue/lock.png) no-repeat 8px center;
+}
+
 
 #main #left-panel-content .lists .list.blank-state{
   color: #ccc;

@@ -11,7 +11,7 @@
     <dd class="list blank-state">Nothing here</dd>
   <% else %>
     <% @lists_i_created.each_with_index do |list, index| %>
-      <%= content_tag_for :dd, list do %>
+      <%= content_tag_for :dd, list, :class => "#{list.public? ? "public" : "private"}" do %>
         <%= list.title %>
       <% end %>
     <% end %>
