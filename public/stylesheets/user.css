@@ -279,5 +279,38 @@
   background: transparent url(/images/icons/trash_over.png) no-repeat;
 }
 
+/*share list*/
+#sharing-wrapper {
+  border: 1px solid #CCC;
+  margin-top: 10px;
+}
+
+#sharing-wrapper #participants-wrapper{
+  min-height: 200px;
+}
+
+#sharing-wrapper #participants{
+  width: 100%;
+}
+
+#sharing-wrapper #participants .participant{
+  border-bottom: 1px dotted #ccc;
+}
+
+#sharing-wrapper #participants .participant .name{
+  padding: 5px 15px;
+  width: 100px;
+}
+
+#sharing-wrapper #participants .participant .email{
+  width: 300px;
+}
+
+#sharing-wrapper #add-new-participants{
+  margin-top: 15px;
+  padding: 0 15px;
+  border-top: 1px solid #CCC;
+}
+
 
 

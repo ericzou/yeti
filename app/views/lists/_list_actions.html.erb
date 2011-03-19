@@ -6,6 +6,7 @@
     <li class="action button last tag jqModal edit">Edit</li>
   </ul>  
   <div id="action-msg" class=""></div>
+  
   <div id="list-edit-modal" class="modal jqmDialog">
     <div class="modal-bg"></div>
     <div class="modal-content">
@@ -16,7 +17,20 @@
     <div class="modal-actions">
     </div>
   </div>
+  
+  <div id="list-share-modal" class="modal jqmDialog">
+    <div class="modal-bg"></div>
+    <div class="modal-content">
+      <p>
+        <%= render :partial => "lists/share" %>
+      </p>
+    </div>
+    <div class="modal-actions">
+    </div>
+  </div>
+  
 </div>
+
 <script type="text/javascript">
   $(document).ready(function(){
     $('.button.delete').bind("click", function(){
@@ -40,5 +54,12 @@
       }
     });
   });
-  $('#list-edit-modal').jqm();
+  
+  $('#list-edit-modal').jqm({
+    trigger : "#list-actions .action.edit"
+  });
+  
+  $('#list-share-modal').jqm({
+    trigger : "#list-actions .action.share"
+  });
 </script>
