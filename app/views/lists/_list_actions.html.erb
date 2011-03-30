@@ -22,7 +22,7 @@
     <div class="modal-bg"></div>
     <div class="modal-content">
       <p>
-        <%= render :partial => "lists/share" %>
+        <%= render :partial => "lists/share", :locals => { :list => @list }  %>
       </p>
     </div>
     <div class="modal-actions">

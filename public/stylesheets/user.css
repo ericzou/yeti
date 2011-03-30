@@ -299,16 +299,32 @@
 
 #sharing-wrapper #participants .participant .name{
   padding: 5px 15px;
-  width: 100px;
+  width: 120px;
 }
 
 #sharing-wrapper #participants .participant .email{
-  width: 300px;
+  width: 240px;
 }
+
+#sharing-wrapper #participants .participant .role{
+  width: 140px;
+}
+
+#sharing-wrapper #participants .participant .actions a.remove{
+  color: #999;
+  text-decoration: none;
+}
+
+#sharing-wrapper #participants .participant .actions a.remove:hover{
+  color: #333;
+  text-decoration: none;
+}
+
+
 
 #sharing-wrapper #add-new-participants{
   margin-top: 15px;
-  padding: 0 15px;
+  padding: 5px 15px 10px 15px;
   border-top: 1px solid #CCC;
 }
 

@@ -3,25 +3,61 @@
 <div id="sharing-wrapper">
   <div id="participants-wrapper">
     <table id="participants">
-      <tr class="participant">
-        <td class="name">EmilyW</td>
-        <td class="email">emily@gmail.com</td>
+      <tr class="owner participant">
+        <td class="name"><%= list.creator.name %></td>
+        <td class="email"><%= list.creator.email %></td>
+        <td class="role">
+          owner
+        </td>
+        <td class="actions"></td>
+      </tr>  
+      
+      <% list.participants.each do | participant| %>
+      <tr class="user participant">
+        <td class="name"><%=  participant.name%></td>
+        <td class="email"><%= participant.email %></td>
+        <td class="role">
+          <% form_for  participant.participations.find_by_list_id(list.id), :remote => true do |f| -%>
+            <% f.select :role, [ ["Can Edit", ROLES[:editor]], ["Can View", ROLES[:viewer]]] %>
+            <% f.submit "Submit", :disable_with => 'Submiting...' %>
+          <% end -%>
+        </td>
+        <td class="actions"><a href="#" class="remove">X</a></td>
+      </tr> 
+      <% end %>
+      <tr class="none-user participant">
+        <td class="name">Pending</td>
+        <td class="email">someone@gmail.com</td>
         <td class="role">
           <select name="" id="form-">
             <option value="">Can Edit</option>
             <option value="">Can View</option>
           </select>
         </td>
-      </tr>  
+        <td class="actions"><a href="#" class="remove">X</a></td>
+      </tr> 
+       
     </table>
 
   </div>
 
   <div id="add-new-participants">
     <div>
-      <label for="">Add People:</label>
+      <label for="">Add people through email:</label>
     </div>
     <input type="textfield" class="form-textfield minimal-matching-height mid">
     <button class="minimal">Add</button>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#participants-wrapper .role select').change(function(){
+        $(this).parent("form").submit();
+    });
+    
+    $('#edit_participation_8').bind("ajax:beforeSend", function(evt, xhr, settings){
+      alert("sdfsd");
+    })
+  })
+</script>
