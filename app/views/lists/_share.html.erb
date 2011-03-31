@@ -13,17 +13,8 @@
       </tr>  
       
       <% list.participants.each do | participant| %>
-      <tr class="user participant">
-        <td class="name"><%=  participant.name%></td>
-        <td class="email"><%= participant.email %></td>
-        <td class="role">
-          <% form_for  participant.participations.find_by_list_id(list.id), :remote => true do |f| -%>
-            <% f.select :role, [ ["Can Edit", ROLES[:editor]], ["Can View", ROLES[:viewer]]] %>
-            <% f.submit "Submit", :disable_with => 'Submiting...' %>
-          <% end -%>
-        </td>
-        <td class="actions"><a href="#" class="remove">X</a></td>
-      </tr> 
+      <% p = participant.participations.find_by_list_id(list.id) %>
+      <%= render :partial => 'lists/participant', :locals => { :participant => participant, :p => p }  %>
       <% end %>
       <tr class="none-user participant">
         <td class="name">Pending</td>
@@ -45,8 +36,10 @@
     <div>
       <label for="">Add people through email:</label>
     </div>
-    <input type="textfield" class="form-textfield minimal-matching-height mid">
-    <button class="minimal">Add</button>
+    <% form_tag create_participation_or_invitation_list_path(list), :method => "post", :remote => true, :id => "add_new_participant" do |f| -%>
+      <input type="textfield" name="email" class="form-textfield minimal-matching-height mid">
+      <button class="minimal">Add</button>
+    <% end -%>
   </div>
 </div>
 
@@ -56,8 +49,13 @@
         $(this).parent("form").submit();
     });
     
-    $('#edit_participation_8').bind("ajax:beforeSend", function(evt, xhr, settings){
-      alert("sdfsd");
-    })
+    $('#participants-wrapper .remove').live("ajax:success", function(evt, data, status, xhr){
+      $(this).parents('.participant').fadeOut(300);
+    });    
+    
+    $('#add_new_participant').bind("ajax:success", function(evt, data, status, xhr){
+      $('#participants-wrapper #participants').append(data);
+      $('#add_new_participant input[type=textfield]').val("").focus()
+    });
   })
 </script>

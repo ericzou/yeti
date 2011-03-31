@@ -1,6 +1,10 @@
 Yeti::Application.routes.draw do
 
   resources :lists do 
+    member do 
+      post "create_participation_or_invitation"
+    end
+
     resources :list_items do 
       collection do 
         put "sort"

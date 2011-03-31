@@ -7,6 +7,21 @@ class ListsController < ApplicationController
     @tags = Tag.all.map(&:name).join(", ")
   end  
   
+   # {"authenticity_token"=>"ouPriOfMUkogu4Abz1PjPgIjJhI9XdX4Rp4BFkFSs+8=", "utf8"=>"\342\234\223", 
+   # "id"=>"22", "email"=>"sdfds@sdsdfsd.com"}
+  def create_participation_or_invitation
+    @list = List.find_by_id(params[:id])
+    if participant = User.find_by_email(params[:email])
+      @list.add_editor!(participant)
+    else
+      # invitation
+    end
+    
+    respond_to do |format|
+      format.html { render(:partial => "lists/participant", :locals => { :participant => participant, :p => @list.participations.find_by_user_id(participant.id)})}
+    end
+  end
+  
   # GET /lists
   # GET /lists.xml
   def index
