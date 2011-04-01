@@ -1,0 +1,12 @@
+<tr class="user participant invitation">
+  <td class="name">Pending</td>
+  <td class="email"><%= invitation.email %></td>
+  <td class="role">
+    <% form_for invitation, :remote => true do |f| -%>
+      <% f.select :role, [ ["Can Edit", ROLES[:editor]], ["Can View", ROLES[:viewer]]] %>
+    <% end -%>
+  </td>
+  <td class="actions">
+    <%= link_to "X", invitation_path(invitation), :remote => true, :method => "delete", :class => "remove" %>
+  </td>
+</tr> 

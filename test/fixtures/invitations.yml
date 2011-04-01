@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  list_id: 1
+  role: MyString
+  token: MyString
+  state: MyString
+  inviter: 
+
+two:
+  list_id: 1
+  role: MyString
+  token: MyString
+  state: MyString
+  inviter: 

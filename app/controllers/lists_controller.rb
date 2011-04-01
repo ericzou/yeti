@@ -13,13 +13,16 @@ class ListsController < ApplicationController
     @list = List.find_by_id(params[:id])
     if participant = User.find_by_email(params[:email])
       @list.add_editor!(participant)
+      respond_to do |format|
+        format.html { render(:partial => "lists/participant", :locals => { :participant => participant, :p => @list.participations.find_by_user_id(participant.id) })}
+      end
     else
-      # invitation
+      invitation = @list.invitations.create(:email => params[:email], :role => ROLES[:editor], :inviter => current_user )
+      respond_to do |format|
+        format.html { render(:partial => "lists/invitation", :locals => { :invitation => invitation })}
+      end
     end
     
-    respond_to do |format|
-      format.html { render(:partial => "lists/participant", :locals => { :participant => participant, :p => @list.participations.find_by_user_id(participant.id)})}
-    end
   end
   
   # GET /lists

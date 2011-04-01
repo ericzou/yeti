@@ -4,6 +4,7 @@ class List < ActiveRecord::Base
   has_many :participants, :through => :participations, :source => :user
   has_many :editors, :through => :participations, :source => :user, :conditions => { :participations => { :role => ROLES[:editor] } }
   has_many :viewers, :through => :participations, :source => :user, :conditions => { :participations => { :role => ROLES[:viewer] } }
+  has_many :invitations
   
   belongs_to :creator, :class_name => "User", :foreign_key => "creator_id"
   

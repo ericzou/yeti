@@ -4,3 +4,9 @@ ROLES = {
   :editor => "editor", 
   :viewer => "viewer" 
 }
+
+if Rails.env.production?
+  YETI_URL = "http://www.pickledprojects.com"
+else
+  YETI_URL = "http://localhost:3001"
+end

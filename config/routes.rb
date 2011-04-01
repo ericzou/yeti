@@ -14,6 +14,7 @@ Yeti::Application.routes.draw do
   end
 
   resources :participations
+  resources :invitations
   
   resources :users do 
     member do 

@@ -13,20 +13,13 @@
       </tr>  
       
       <% list.participants.each do | participant| %>
-      <% p = participant.participations.find_by_list_id(list.id) %>
-      <%= render :partial => 'lists/participant', :locals => { :participant => participant, :p => p }  %>
+        <% p = participant.participations.find_by_list_id(list.id) %>
+        <%= render :partial => 'lists/participant', :locals => { :participant => participant, :p => p }  %>
       <% end %>
-      <tr class="none-user participant">
-        <td class="name">Pending</td>
-        <td class="email">someone@gmail.com</td>
-        <td class="role">
-          <select name="" id="form-">
-            <option value="">Can Edit</option>
-            <option value="">Can View</option>
-          </select>
-        </td>
-        <td class="actions"><a href="#" class="remove">X</a></td>
-      </tr> 
+      
+      <% list.invitations.each do | invitation | %>
+        <%= render :partial => 'lists/invitation', :locals => { :invitation => invitation }  %>
+      <% end %>
        
     </table>
 
@@ -45,7 +38,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('#participants-wrapper .role select').change(function(){
+    $('#participants-wrapper .role select').live('change', function(){
         $(this).parent("form").submit();
     });
     

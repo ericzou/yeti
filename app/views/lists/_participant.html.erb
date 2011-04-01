@@ -1,0 +1,12 @@
+<tr class="user participant">
+  <td class="name"><%=  participant.name%></td>
+  <td class="email"><%= participant.email %></td>
+  <td class="role">
+    <% form_for p, :remote => true do |f| -%>
+      <% f.select :role, [ ["Can Edit", ROLES[:editor]], ["Can View", ROLES[:viewer]]] %>
+    <% end -%>
+  </td>
+  <td class="actions">
+    <%= link_to "X", participation_path(p), :remote => true, :method => "delete", :class => "remove" %>
+  </td>
+</tr> 
