@@ -17,7 +17,7 @@
         <%= render :partial => 'lists/participant', :locals => { :participant => participant, :p => p }  %>
       <% end %>
       
-      <% list.invitations.each do | invitation | %>
+      <% list.invitations.pending.each do | invitation | %>
         <%= render :partial => 'lists/invitation', :locals => { :invitation => invitation }  %>
       <% end %>
        

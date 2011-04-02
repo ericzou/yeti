@@ -24,7 +24,9 @@
     <dd class="list blank-state first">Nothing here yet</dd>
   <% else %>
     <% @lists_i_am_shared_with.each_with_index do |list, index| %>
-      <dd class="list <%= index == 0 ? "first" : "" %>"><%= list.title %></dd>
+      <%= content_tag_for :dd, list, :class => "#{list.public? ? "public" : "private"}" do %>
+      <%= list.title %>
+      <% end %>
     <% end %>
   <% end %>
 </dl>
@@ -50,6 +52,8 @@
 
 <% content_for :right_panel_content do %>
 <div id="list-detail">
-  <%= render :partial => "lists/show" %>
+  <% if @list %>
+    <%= render :partial => "lists/show" %>
+  <% end %>
 </div>
 <% end %>

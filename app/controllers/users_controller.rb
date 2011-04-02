@@ -29,8 +29,9 @@ class UsersController < ApplicationController
   def home
     @user = current_user
     @lists_i_created = @user.lists_as_creator
-    @list = List.find_by_id(params[:list_id]) || @user.lists_as_creator.last
-    @list_item = @list.list_items.build
+    @lists_i_am_shared_with = @user.participating_lists
+    @list = List.find_by_id(params[:list_id]) || @user.lists_as_creator.last || @user.participating_lists.last 
+    @list_item = @list.list_items.build  if @list
     @tags = Tag.all.map(&:name).join(", ")
     @edit_mode = true
     respond_to do |format|
@@ -63,6 +64,7 @@ class UsersController < ApplicationController
     @user.password_confirmation = @user.password # dont confirm password for now
     respond_to do |format|
       if @user.save
+        Invitation.accept_all_invitations_shared_with!(@user, session[:invitation_token])
         AppMailer.notification_to_admin_new_user_sign_up(@user).deliver
         format.html { redirect_to(home_user_path(@user), :notice => 'User was successfully created.') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
