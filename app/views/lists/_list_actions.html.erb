@@ -41,7 +41,7 @@
           url: "<%= batch_destroy_list_list_items_path(@list) %>",
           type: "delete",
           dataType: "html",
-          data : { list_item_id : $.map($('.list-item input[type=checkbox]:checked'),
+          data: { list_item_id : $.map($('.list-item input[type=checkbox]:checked'),
                         function(n){
                           return $(n).val();
                         }) 
