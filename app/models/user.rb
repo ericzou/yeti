@@ -10,4 +10,12 @@ class User < ActiveRecord::Base
     
   end # block optional
 
+  def editor_for_list?(list)
+    list.editors.include?(self)
+  end
+  
+  def viewer_for_list?(list)
+    list.viewers.include?(self)
+  end
+  
 end

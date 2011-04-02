@@ -1,33 +1,14 @@
 <div id="list-actions-wrapper" class="clearfix">
   <ul id="list-actions" class="clearfix">
-    <li class="action first button share">Share</li>
-    <li class="action button archive">Archive</li>
-    <li class="action button delete">Delete</li>
-    <li class="action button last tag jqModal edit">Edit</li>
+      <li class="action first button share">Share</li>
+      <li class="action button delete">Delete</li>
+      <li class="action button last tag jqModal edit">Edit</li>
   </ul>  
   <div id="action-msg" class=""></div>
   
-  <div id="list-edit-modal" class="modal jqmDialog">
-    <div class="modal-bg"></div>
-    <div class="modal-content">
-      <p>
-        <%= render 'lists/form' %>
-      </p>
-    </div>
-    <div class="modal-actions">
-    </div>
-  </div>
-  
-  <div id="list-share-modal" class="modal jqmDialog">
-    <div class="modal-bg"></div>
-    <div class="modal-content">
-      <p>
-        <%= render :partial => "lists/share", :locals => { :list => @list }  %>
-      </p>
-    </div>
-    <div class="modal-actions">
-    </div>
-  </div>
+  <%= render :partial => 'lists/list_edit_modal' %>
+
+  <%= render :partial => 'lists/list_share_modal', :locals => { :list => @list } %>
   
 </div>
 
