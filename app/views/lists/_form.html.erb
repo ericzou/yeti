@@ -40,7 +40,8 @@
     </div>
     <% end %>
     <dd class="form-line-item actions">
-      <button class="minimal">Save List</button>
+      <%= submit_tag "Save List", :class=> "minimal" %>
+      <%= submit_tag "Delete List", :class=> "minimal red", :confirm => "Are you sure you want to delete this list?" if @edit_mode and current_user.creator_for_list?(@list) %> 
     </dd>
   </dd>
   </dl>

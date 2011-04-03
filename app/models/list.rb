@@ -1,10 +1,10 @@
 class List < ActiveRecord::Base
-  has_many :list_items, :order => "position"
-  has_many :participations
+  has_many :list_items, :order => "position", :dependent => :destroy
+  has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :user
   has_many :editors, :through => :participations, :source => :user, :conditions => { :participations => { :role => ROLES[:editor] } }
   has_many :viewers, :through => :participations, :source => :user, :conditions => { :participations => { :role => ROLES[:viewer] } }
-  has_many :invitations
+  has_many :invitations, :dependent => :destroy
   
   belongs_to :creator, :class_name => "User", :foreign_key => "creator_id"
   

@@ -1,23 +1,30 @@
-<%= render :partial => 'lists/list_actions' %>
-
+<% @creator_or_editor = current_user.editor_for_list?(@list) || current_user.creator_for_list?(@list) %>
+<% if @creator_or_editor %>
+  <%= render :partial => 'lists/list_actions' %>
+<% end %>
 <%= render :partial => 'lists/list_meta' %>
 
+<% if @creator_or_editor %>
 <div id="trash-can" style=""></div>    
+<% end %>
 
 <ul class="list-items">
   <%= render :partial => @list.list_items %>  
 </ul>
 
+<% if @creator_or_editor %>
 <div id="new-list-item-wrapper">
   <%  form_for [@list, @list_item] do |f| %>
   <%= f.text_field :body, :class => "form-textfield minimal-matching-height long"  %>
   <button class="minimal">Add Item</button>
   <% end %>
 </div>
+<% end %>
 
 <script type="text/javascript">
   $(document).ready(function(){
-  
+    
+    <% if @creator_or_editor %>
     $('.list-items').sortable({
       cursor : 'move', 
       stop : function(event, ui){
@@ -82,5 +89,6 @@
         }
       });
     });
+    <% end %>
   });
 </script>

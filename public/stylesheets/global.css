@@ -332,7 +332,7 @@ html[xmlns] .clearfix {
 
 /* minimal
 *******************************************************************************/
-button.minimal, a.minimal{
+button.minimal, a.minimal, .minimal{
   background: #e3e3e3;
   border: 1px solid #bbb;
   -moz-border-radius: 3px;
@@ -353,13 +353,22 @@ button.minimal, a.minimal{
   text-decoration: none;
 }
 
+.minimal.red{
+  background: #9b0707;
+  color: #fff;
+  -moz-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  box-shadow: inset 0 0 1px 1px #f6f6f6;
+  text-shadow: 0 -1px 0 #333;
+}
+
 a.minimal{
   display: block;
   margin-top: 2px;
 }
 
 button.minimal:hover,
-a.minimal:hover{
+a.minimal:hover, .minimal:hover{
   background: #d9d9d9;
   -moz-box-shadow: inset 0 0 1px 1px #eaeaea;
   -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
@@ -369,7 +378,7 @@ a.minimal:hover{
 }
 
 button.minimal:active,
-a.minimal:active{
+a.minimal:active, .minimal:active{
   background: #d0d0d0;
   -moz-box-shadow: inset 0 0 1px 1px #e3e3e3;
   -webkit-box-shadow: inset 0 0 1px 1px #e3e3e3;

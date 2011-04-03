@@ -86,16 +86,21 @@ class ListsController < ApplicationController
   # PUT /lists/1.xml
   def update
     @list = List.find(params[:id])
-    
-    respond_to do |format|
-      if @list.update_attributes(params[:list])
-        format.html { redirect_to(home_user_path(current_user, :list_id => @list.id), :notice => 'List was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
+    if params[:commit] == "Delete List"
+      @list.update_attribute(:state, "deleted")
+      redirect_to(home_user_path(current_user), :notice => 'List was deleted.') 
+    else
+      respond_to do |format|
+        if @list.update_attributes(params[:list])
+          format.html { redirect_to(home_user_path(current_user, :list_id => @list.id), :notice => 'List was successfully updated.') }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
+        end
       end
     end
+    
   end
 
   # DELETE /lists/1
