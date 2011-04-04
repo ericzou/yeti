@@ -1,0 +1,35 @@
+<% page_title "Create a new list, Yeti - the best way to share and discover lists" %>
+<% body_id "browse" %>
+
+<% left_panel_nav("browse") %>
+
+<% content_for :left_panel_content do %>
+<dl id="public-lists" class="lists">
+  <dt class="lists-title">PUBLIC LISTS</dt>
+  <% if @lists.blank? %>
+    <dd class="list blank-state">Nothing here</dd>
+  <% else %>
+    <% @lists.each_with_index do |list, index| %>
+      <%= content_tag_for :dd, list, :class => "#{list.public? ? "public" : "private"}" do %>
+        <%= list.title %>
+      <% end %>
+    <% end %>
+  <% end %>
+</dl>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    Yeti.click_list_title_to_load_detail();
+  });
+</script>
+
+<% end %>
+
+<% content_for :right_panel_content do %>
+  <div id="list-detail">
+    <% if @list = @lists.first %>
+      <%= render :partial => "lists/show" %>
+    <% end %>
+  </div>
+<% end %>
