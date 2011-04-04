@@ -4,6 +4,10 @@ Yeti::Application.routes.draw do
     member do 
       post "create_participation_or_invitation"
     end
+    
+    collection do 
+      get "browse"
+    end
 
     resources :list_items do 
       collection do 

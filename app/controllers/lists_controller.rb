@@ -22,7 +22,11 @@ class ListsController < ApplicationController
         format.html { render(:partial => "lists/invitation", :locals => { :invitation => invitation })}
       end
     end
-    
+  end
+  
+  def browse
+    @lists = List.active.public.recent
+    render  :template => "lists/browse"
   end
   
   # GET /lists

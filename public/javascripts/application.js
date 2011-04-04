@@ -34,8 +34,22 @@ $(document).ready(function(){
       var dom = $("<input class='target' id='"+ list_item_id +"' name='list[list_items_attributes]["+ (i-1) +"][body]' type='hidden'/>");
       $(dom).val(body);
       return dom;
-    }
+    }, 
     
+    click_list_title_to_load_detail : function(){
+      $('.list:not(.blank-state)').click(function(e){
+        e.preventDefault();
+        list_id = $(this).attr("id").split("_")[1];
+        $.ajax({
+          url : "/lists/" + list_id,
+          type: "get",
+          dataType: "html",
+          success : function(data){
+            $('#list-detail').html(data);
+          }
+        });
+      });
+    }
   }
   
   $('#flash_message .notice').livequery(function(){

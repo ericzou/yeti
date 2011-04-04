@@ -8,6 +8,17 @@ class List < ActiveRecord::Base
   
   belongs_to :creator, :class_name => "User", :foreign_key => "creator_id"
   
+  scope :active, lambda{
+    where("lists.state != ?", 'deleted')
+  }
+  scope :public, lambda { 
+    where("lists.public is true")
+  }
+  
+  scope :recent, lambda{
+    order("lists.created_at desc")
+  }
+  
   acts_as_taggable
   
   validates_presence_of :title, :on => :create, :message => "can't be blank"

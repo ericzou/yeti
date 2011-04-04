@@ -8,8 +8,12 @@ module ApplicationHelper
           link_to "My Lists", home_user_path(current_user)
         end
         
-        html << content_tag(:li, :class=>"#create-new-list #{selected == "create-new-list" ? "selected" : "" }") do
+        html << content_tag(:li, :class=>"create-new-list #{selected == "create-new-list" ? "selected" : "" }") do
           link_to "Create New List", new_list_path
+        end
+        
+        html << content_tag(:li, :class=>"browse #{selected == "browse" ? "selected" : "" }") do
+          link_to "Browse", browse_lists_path
         end
       end
       html

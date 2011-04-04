@@ -33,18 +33,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.list:not(.blank-state)').click(function(e){
-      e.preventDefault();
-      list_id = $(this).attr("id").split("_")[1];
-      $.ajax({
-        url : "/lists/" + list_id,
-        type: "get",
-        dataType: "html",
-        success : function(data){
-          $('#list-detail').html(data);
-        }
-      })
-    })
+    Yeti.click_list_title_to_load_detail();
   });
 </script>
 
