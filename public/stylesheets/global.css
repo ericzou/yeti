@@ -354,12 +354,17 @@ button.minimal, a.minimal, .minimal{
 }
 
 .minimal.red{
-  background: #9b0707;
-  color: #fff;
-  -moz-box-shadow: inset 0 0 1px 1px #f6f6f6;
-  -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
-  box-shadow: inset 0 0 1px 1px #f6f6f6;
-  text-shadow: 0 -1px 0 #333;
+  color: #9b0707;
+}
+
+.minimal.red:hover{
+  background: #630300;
+  border: 1px solid #3b0200;
+  -moz-box-shadow: inset 0 0 1px 1px #880500;
+  -webkit-box-shadow: inset 0 0 1px 1px #880500;
+  box-shadow: inset 0 0 1px 1px #880500;
+  color: #e70e00;
+  text-shadow: 0 1px #3b0200;  
 }
 
 a.minimal{
