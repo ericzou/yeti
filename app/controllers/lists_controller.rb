@@ -29,6 +29,12 @@ class ListsController < ApplicationController
     render  :template => "lists/browse"
   end
   
+  def search
+    q = params[:q]
+    @lists = List.search(q)
+    render  :template => "lists/browse"
+  end
+  
   # GET /lists
   # GET /lists.xml
   def index

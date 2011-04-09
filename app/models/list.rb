@@ -28,6 +28,17 @@ class List < ActiveRecord::Base
   
   validates_presence_of :list_items, :on => :create, :message => "can't be blank"
   
+  define_index do
+    # fields
+    indexes title, :sortable => true
+    indexes description
+    indexes creator.name, :as => :creator, :sortable => true
+    
+    # attributes
+    has creator_id, created_at, updated_at
+  end
+  
+  
   def add_editor!(user)
     participations.create!(:user => user, :role => ROLES[:editor] )
   end

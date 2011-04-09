@@ -7,6 +7,7 @@ Yeti::Application.routes.draw do
     
     collection do 
       get "browse"
+      get "search"
     end
 
     resources :list_items do 

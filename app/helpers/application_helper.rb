@@ -16,7 +16,7 @@ module ApplicationHelper
           link_to "Browse", browse_lists_path
         end
       end
-      html
+      html.html_safe
     end
   end
     
