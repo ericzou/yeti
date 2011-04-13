@@ -35,5 +35,9 @@ namespace :deploy do
   task :link_database_config, :roles => :app do 
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config" # sync the database.yml file 
   end
+  task :link_sphinx_config, :roles => :app do 
+    run "ln -nfs #{shared_path}/config/production.sphinx.conf #{release_path}/config" # sync sphinx file 
+  end
   before "deploy:migrate", "deploy:link_database_config"
+  after "deploy:migrate", "deploy:link_sphinx_config"
 end
