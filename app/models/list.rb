@@ -35,7 +35,7 @@ class List < ActiveRecord::Base
     indexes creator.name, :as => :creator, :sortable => true
     
     # attributes
-    has creator_id, created_at, updated_at
+    has creator_id, created_at, updated_at, public
   end
   
   
