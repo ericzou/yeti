@@ -39,7 +39,7 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/production.sphinx.conf #{release_path}/config" # sync sphinx file 
   end
   task :rebuild_sphinx_index, :roles => :app do 
-    run "rake ts:rebuild RAILS_ENV=production" # rebuild index
+    run "sudo /opt/ruby-enterprise-1.8.7-2010.02/bin/rake ts:rebuild RAILS_ENV=production" # rebuild index
   end
   before "deploy:migrate", "deploy:link_database_config"
   after "deploy:migrate", "deploy:link_sphinx_config"
