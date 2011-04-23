@@ -7,4 +7,8 @@ class LandingsController < ApplicationController
     @user = User.new
   end
 
+  def sitemap
+    headers['Content-Type'] = 'application/xml'
+    @lists = List.active.public.recent
+  end
 end

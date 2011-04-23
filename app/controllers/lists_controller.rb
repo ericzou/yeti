@@ -51,10 +51,11 @@ class ListsController < ApplicationController
   # GET /lists/1.xml
   def show
     @list = List.find(params[:id])
+    @lists = List.active.public.recent
     @list_item = @list.list_items.build
     @edit_mode = true
     respond_to do |format|
-      format.js { render :partial => "lists/show" }# show.html.erb
+      format.html { request.xhr? ? render(:partial => "lists/show") : render(:template => "lists/browse") }
       format.xml  { render :xml => @list }
     end
   end

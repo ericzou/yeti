@@ -1,4 +1,4 @@
-<% @creator_or_editor = current_user.editor_for_list?(@list) || current_user.creator_for_list?(@list) %>
+<% @creator_or_editor = current_user && (current_user.editor_for_list?(@list) || current_user.creator_for_list?(@list)) %>
 <% if @creator_or_editor %>
   <%= render :partial => 'lists/list_actions' %>
 <% end %>

@@ -1,0 +1,15 @@
+xml.instruct!
+xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
+  xml.url do
+    xml.loc         "http://marvellists.com"
+    xml.lastmod     Time.now
+    xml.changefreq  "monthly"
+  end
+  @lists.each do |list|
+    xml.url do
+      xml.loc         list_path(list)
+      xml.lastmod     list.created_at
+      xml.changefreq  "monthly"
+    end
+  end
+end
