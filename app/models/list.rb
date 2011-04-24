@@ -33,7 +33,6 @@ class List < ActiveRecord::Base
     indexes title, :sortable => true
     indexes description
     indexes creator.name, :as => :creator, :sortable => true
-    indexes tag_list, :as => :tags, :sortable => true
     
     # attributes
     has creator_id, created_at, updated_at, public

@@ -32,7 +32,7 @@ class ListsController < ApplicationController
   def search
     q = params[:q]
     @lists = List.search(q, :with => {:public => true })
-    @lists = @lists + List.tagged_with(q)
+    @lists = @lists + List.public.tagged_with(q)
     render  :template => "lists/browse"
   end
   

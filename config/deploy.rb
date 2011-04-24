@@ -40,7 +40,7 @@ namespace :deploy do
   end
   task :rebuild_sphinx_index, :roles => :app do 
     run "sudo /opt/ruby-enterprise-1.8.7-2010.02/bin/rake -f /data/www/yeti/current/Rakefile ts:rebuild RAILS_ENV=production" # rebuild index
-    run "sudo chown ubuntu:root searchd.production.pid"
+    run "sudo chown ubuntu:root /data/www/yeti/current/log/searchd.production.pid"
   end
   before "deploy:migrate", "deploy:link_database_config"
   after "deploy:migrate", "deploy:link_sphinx_config"
