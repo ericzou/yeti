@@ -39,7 +39,7 @@ class ListsController < ApplicationController
   
   def browse
     @lists = List.active.public.recent
-    @list = @list.first
+    @list = @lists.first
     render  :template => "lists/browse"
   end
   
