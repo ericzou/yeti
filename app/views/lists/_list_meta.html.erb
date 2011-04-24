@@ -14,8 +14,10 @@
       <span class="created_at">created <%= time_ago_in_words(@list.created_at) %> ago</span>
     <% end %>
   </li>
+  <% if !@list.new_record? %>
   <li class="url">
     <label for="">Url:</label>
     <span><%= list_url(@list) %></span>
   </li>
+  <% end %>
 </ul>
