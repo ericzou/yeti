@@ -14,6 +14,9 @@ class List < ActiveRecord::Base
   scope :public, lambda { 
     where("lists.public is true")
   }
+  scope :private, lambda { 
+    where("lists.public is not true")
+  }
   
   scope :recent, lambda{
     order("lists.created_at desc")

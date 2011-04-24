@@ -28,7 +28,7 @@
 
 <% content_for :right_panel_content do %>
   <div id="list-detail">
-    <% if @list = @lists.first %>
+    <% if @list  %>
       <%= render :partial => "lists/show" %>
     <% end %>
   </div>

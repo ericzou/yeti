@@ -2,10 +2,23 @@ class ListsController < ApplicationController
   
   layout "two_panel_layout"
   before_filter :common_actions
+  before_filter :can_access_list, :only => [:show]
   
   def common_actions
     @tags = Tag.all.map(&:name).join(", ")
   end  
+  
+  def can_access_list
+    list = List.find_by_id(params[:id])
+    if current_user 
+      r = current_user.can_view_list?(list)
+    else
+      r = list.public?
+    end
+    if !r
+      render :template => "lists/access_error", :layout => "application"  and return
+    end
+  end
   
    # {"authenticity_token"=>"ouPriOfMUkogu4Abz1PjPgIjJhI9XdX4Rp4BFkFSs+8=", "utf8"=>"\342\234\223", 
    # "id"=>"22", "email"=>"sdfds@sdsdfsd.com"}
@@ -26,6 +39,7 @@ class ListsController < ApplicationController
   
   def browse
     @lists = List.active.public.recent
+    @list = @list.first
     render  :template => "lists/browse"
   end
   

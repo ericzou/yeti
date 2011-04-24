@@ -22,4 +22,10 @@ class User < ActiveRecord::Base
     list.viewers.include?(self)
   end
   
+  def can_view_list?(list)
+    return true if list.public
+    return true if viewer_for_list?(list) || editor_for_list?(list) || creator_for_list?(list)
+    return false
+  end
+  
 end
