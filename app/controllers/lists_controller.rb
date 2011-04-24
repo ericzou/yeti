@@ -47,6 +47,7 @@ class ListsController < ApplicationController
     q = params[:q]
     @lists = List.search(q, :with => {:public => true })
     @lists = @lists + List.public.tagged_with(q)
+    @list = @lists.first
     render  :template => "lists/browse"
   end
   
