@@ -28,7 +28,7 @@ module ApplicationHelper
       else
         m = msg
       end
-      "<span class='yellow-tip'></span>#{m}"  
+      "<span class='yellow-tip'></span>#{m}".html_safe  
     end
   end
   

@@ -8,6 +8,10 @@
 <div id="trash-can" style=""></div>    
 <% end %>
 
+<div id="add_this">
+  <%= render :partial => "lists/addthis_widget" %>
+</div>
+
 <ul class="list-items">
   <%= render :partial => @list.list_items %>  
 </ul>

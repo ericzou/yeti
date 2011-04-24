@@ -279,6 +279,11 @@
   background: transparent url(/images/icons/trash_over.png) no-repeat;
 }
 
+/*add this*/
+#add_this{
+  margin-bottom: 15px;
+}
+
 /*share list*/
 #sharing-wrapper {
   border: 1px solid #CCC;
