@@ -113,7 +113,9 @@ class ListsController < ApplicationController
   # PUT /lists/1.xml
   def update
     @list = List.find(params[:id])
+    return if !current_user.can_edit_list?(@list)
     if params[:commit] == "Delete List"
+      return if !current_user.creator_for_list?(@list)
       @list.update_attribute(:state, "deleted")
       redirect_to(home_user_path(current_user), :notice => 'List was deleted.') 
     else
@@ -137,8 +139,12 @@ class ListsController < ApplicationController
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to(lists_url) }
-      format.xml  { head :ok }
+      if request.xhr?
+        format.html{ render :nothing => true }
+      else
+        format.html { redirect_to(lists_url) }  
+        format.xml  { head :ok }
+      end
     end
   end
 end

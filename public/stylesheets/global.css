@@ -514,3 +514,33 @@ a.minimal:active, .minimal:active{
   border-bottom-left-radius: 3px 3px;
 }
 
+
+/* MISC */
+.droppable-area.left{
+/*  border: 1px solid #ccc;*/
+  width: 210px;
+  height: 850px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.droppable-area.right{
+/*  border: 1px solid #ccc;*/
+  width: 160px;
+  height: 850px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#cloud-poof, .cloud-poof{
+  background: url(/images/cloud-poof.png) no-repeat 0px center;
+  height: 85px;
+  width: 90px;
+  display: block;
+  position: absolute;
+  display: none;
+}
+
+

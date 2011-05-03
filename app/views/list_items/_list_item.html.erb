@@ -2,11 +2,7 @@
   <% next if list_item.new_record? %>
   <%= check_box_tag "list_item_id[#{list_item.id}]", list_item.id  if current_user and (current_user.creator_for_list?(@list) || current_user.editor_for_list?(@list)) %> 
   <span class="list-style <%= @list.style.blank? ? "numbers" : @list.style %>"><%= list_item.position %></span>
-  <!-- <span class="list-item-input">
-    <input type="textfield", class="form-textfield very-long short-height" value="<%= list_item.body %>">
-  </span> -->
   <%= floating_explanation(@list, "list_items.body", "Enter something") %>
   <span class="list-item-body show-inline"><%= list_item.body %></span>
-  <%= link_to "#", list_list_item_path(@list, list_item), :class => "hide list-item-link" %>
 <% end %>
 

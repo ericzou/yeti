@@ -49,7 +49,19 @@ $(document).ready(function(){
           }
         });
       });
+    },
+    
+    fire_cloud_poof : function(){
+      var i = 0;
+      c = setInterval(function(){
+        $('.cloud-poof, #cloud-poof').css("background-position-x", -90*i + 'px');        
+        i++;
+        if ( i > 4){
+          clearInterval(c);
+        }
+      }, 150);
     }
+    
   }
   
   $('#flash_message .notice').livequery(function(){

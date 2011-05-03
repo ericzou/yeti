@@ -28,4 +28,10 @@ class User < ActiveRecord::Base
     return false
   end
   
+  def can_edit_list?(list)
+    return true if list.public
+    return true if editor_for_list?(list) || creator_for_list?(list)
+    return false    
+  end
+
 end
