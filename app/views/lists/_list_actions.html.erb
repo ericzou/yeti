@@ -2,6 +2,7 @@
   <ul id="list-actions" class="clearfix">
     <li class="action first button share">Share</li>
     <!-- <li class="action button delete">Delete</li> -->
+    <li class="action button copy-list">Copy List</li>
     <li class="action button last tag jqModal edit">Edit</li>
   </ul>  
   <div id="action-msg" class=""></div>
@@ -14,6 +15,9 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
+    $('.button.copy-list').bind("click", function(){
+      window.location.replace("<%= new_list_path(:copy_list_id => @list.id) %>")
+    });
     $('.button.delete').bind("click", function(){
       if ($('.list-item input[type=checkbox]:checked').length === 0){
         $('#action-msg').removeClass("success").addClass("error").html("Please select a list item").show();

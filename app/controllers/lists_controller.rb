@@ -78,9 +78,18 @@ class ListsController < ApplicationController
   # GET /lists/new
   # GET /lists/new.xml
   def new
-    @list = List.new
-    @list.creator = current_user
-    1.times { @list.list_items.build } 
+    if @copy_list = List.find_by_id(params[:copy_list_id])
+      @list = List.new(:title => @copy_list.title + " copy", :description => @copy_list.description, 
+                       :creator => current_user, :tag_list => @copy_list.tag_list, 
+                       :style => @copy_list.style, :public =>  @copy_list.public )                 
+      @copy_list.list_items.each do |c_li|
+        @list.list_items.build(:body => c_li.body, :creator => current_user, :position => c_li.position,  :checked_off => c_li.checked_off)
+      end               
+    else
+      @list = List.new(:style => "numbers")
+      @list.creator = current_user
+      1.times { @list.list_items.build } 
+    end
     @tags = Tag.all.map(&:name).join(", ")
     respond_to do |format|
       format.html # new.html.erb

@@ -4,7 +4,6 @@
     <% form_for [@list, list_item], :remote => true do |f| -%>
       <%= f.check_box :checked_off, :class=> "check-off" %>
     <% end -%>
-
   <% end %>
   <span class="list-style <%= @list.style.blank? ? "numbers" : @list.style %>"><%= list_item.position %></span>
   <%= floating_explanation(@list, "list_items.body", "Enter something") %>

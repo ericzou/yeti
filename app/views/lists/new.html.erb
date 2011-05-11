@@ -11,11 +11,24 @@
 <% content_for :right_panel_content do %>
   <%= render :partial => 'list_meta' %>
   <ul class="list-items">
-    <li class="blank-state list-item <%= list_items_blank?(@list) ? "error" : "" %>">No list item yet, try add one</li>
+    <% if @copy_list.nil? %>  
+      <li class="blank-state list-item <%= list_items_blank?(@list) ? "error" : "" %>">No list item yet, try add one</li>
+    <% else %>
+       <%  @list.list_items.each_with_index do |list_item, index| %>
+        <li class="list-item">
+          <span class="list-style <%= @list.style %>"><%= index+1 %></span>
+          <span class="list-item-body show-inline" id="list_list_items_attributes_<%= index %>"><%= list_item.body %></span>
+        </li>
+       <% end %>
+    <% end %>
   </ul>
   <div id="add-list-item-wrapper">
     <form action="">
-      <span class="list-style numbers">1</span>
+      <% if @copy_list.nil? %>
+            <span class="list-style <%= @list.style %>">1</span>
+      <% else %>
+            <span class="list-style <%= @list.style %>"><%= @list.list_items.size+1 %></span>
+      <% end %>
       <input type="textfield", class="form-textfield long minimal-matching-height">
       <button class="minimal">Add Item</button>
     </form>
