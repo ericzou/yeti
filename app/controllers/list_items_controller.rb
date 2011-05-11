@@ -27,6 +27,13 @@ class ListItemsController < ApplicationController
       format.js { render(:partial => @list.list_items) }
     end
   end
+  
+  def update
+    @list = List.find_by_id(params[:list_id])
+    @list_item = @list.list_items.find_by_id(params[:id])
+    @list_item.update_attributes(params[:list_item])
+    render :nothing => true   
+  end
 
   def destroy
     @list_item = ListItem.find(params[:id])

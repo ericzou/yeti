@@ -1,8 +1,13 @@
 <% content_tag_for :li, list_item, :class=>"list-item" do  %>
   <% next if list_item.new_record? %>
-  <%= check_box_tag "list_item_id[#{list_item.id}]", list_item.id  if current_user and (current_user.creator_for_list?(@list) || current_user.editor_for_list?(@list)) %> 
+  <% if current_user and (current_user.creator_for_list?(@list) || current_user.editor_for_list?(@list)) %>
+    <% form_for [@list, list_item], :remote => true do |f| -%>
+      <%= f.check_box :checked_off, :class=> "check-off" %>
+    <% end -%>
+
+  <% end %>
   <span class="list-style <%= @list.style.blank? ? "numbers" : @list.style %>"><%= list_item.position %></span>
   <%= floating_explanation(@list, "list_items.body", "Enter something") %>
-  <span class="list-item-body show-inline"><%= list_item.body %></span>
+  <span class="list-item-body show-inline <%= list_item.checked_off? ? 'checked-off' : '' %>"><%= list_item.body %></span>
 <% end %>
 
