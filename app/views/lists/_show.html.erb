@@ -4,10 +4,12 @@
 <% end %>
 <%= render :partial => 'lists/list_meta' %>
 
-<% if @creator_or_editor %>
+<!-- <% if @creator_or_editor %>
 <div id="trash-can" style=""></div>    
+<% end %> -->
+<% if current_user %>
+  <%= link_to "Copy List", new_list_path(:copy_list_id => @list.id), :class => "awesome small blue", :id=> "copy-list" %>
 <% end %>
-
 <% if @list.public? %>
 <div id="add_this">
   <%= render :partial => "lists/addthis_widget" %>

@@ -288,6 +288,9 @@ form.edit_list_item{
   background: transparent url(/images/icons/trash_over.png) no-repeat;
 }
 
+#copy-list{
+  position: absolute; right: 10px; top: 15px;
+}
 /*add this*/
 #add_this{
   margin-bottom: 15px;
