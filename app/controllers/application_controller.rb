@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
       if current_user
         store_location
         flash[:notice] = "You must be logged out to access this page"
-        redirect_to home_user_path(@user)
+        redirect_to home_user_path(current_user)
         return false
       end
     end

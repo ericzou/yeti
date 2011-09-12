@@ -46,55 +46,48 @@
       },
       stop : function(event, ui){
         event.stopPropagation();
-        // $.ajax({
-        //           url: "<%= sort_list_list_items_path(@list) %>",
-        //           type: "put", 
-        //           dataType: "html",
-        //           data: $(this).sortable('serialize'),
-        //           success: function(data){
-        //             $(".list-items").html(data);
-        //           }
-        //         });
       }
     });
     
-    $('.droppable-area').droppable({
-      tolerance : "pointer",
-      over: function(event, ui){
-      },
-      out: function(){
-        // $('#cloud-poof').hide();
-      },
-      deactivate: function(){
-        // $('#cloud-poof').hide();
-      },
-      drop: function(event, ui){
-        $(ui.draggable).remove();
-        if( $(ui.draggable).hasClass("list-item") ){
-          var list_item_id = $(ui.draggable).attr("id").replace(/list_item_/, "");
-          var list_id = "<%= @list.id %>";
-          $.ajax({
-            url: "/lists/" + list_id + "/list_items/" + list_item_id,
-            type: "delete", 
-            dataType: "html",
-            data: { id : list_item_id},
-            success: function(data){
-              $(".list-items").html(data);
-            }
-          });
-        }else{
-          var list_id = $(ui.draggable).attr("id").split("_")[1];
-          $.ajax({
-            url: "/lists/" + list_id,
-            type: "put", 
-            dataType: "html",
-            data: { id : list_id, commit : "Delete List"},
-            success: function(data){
-            }
-          });          
+    <% if !@list.blank? %>
+      $('.droppable-area').droppable({
+        tolerance : "pointer",
+        over: function(event, ui){
+        },
+        out: function(){
+          // $('#cloud-poof').hide();
+        },
+        deactivate: function(){
+          // $('#cloud-poof').hide();
+        },
+        drop: function(event, ui){
+          $(ui.draggable).remove();
+          if( $(ui.draggable).hasClass("list-item") ){
+            var list_item_id = $(ui.draggable).attr("id").replace(/list_item_/, "");
+            var list_id = "<%= @list.id %>";
+            $.ajax({
+              url: "/lists/" + list_id + "/list_items/" + list_item_id,
+              type: "delete", 
+              dataType: "html",
+              data: { id : list_item_id},
+              success: function(data){
+                $(".list-items").html(data);
+              }
+            });
+          }else{
+            var list_id = $(ui.draggable).attr("id").split("_")[1];
+            $.ajax({
+              url: "/lists/" + list_id,
+              type: "put", 
+              dataType: "html",
+              data: { id : list_id, commit : "Delete List"},
+              success: function(data){
+              }
+            });          
+          }
         }
-      }
-    });
+      });
+    <% end %>
     
     
     

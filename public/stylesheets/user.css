@@ -200,6 +200,9 @@
   font-size: 16px;
   font-weight: bold;
   margin-right: 15px;
+  display: inline; /* in case browser does not support inline-block */
+  display: inline-block;
+  min-width: 20px;
 }
 
 #main #right-panel-content .list-style.bullets{

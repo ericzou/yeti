@@ -189,6 +189,17 @@ html[xmlns] .clearfix {
   text-shadow: 1px 1px #fff;
 }
 
+#footer-nav li a{
+  color: #689c00;
+  text-shadow: 1px 1px #fff;  
+  text-decoration: none;
+}
+
+#footer-nav li a:hover{
+  color: #8Abe22;
+  text-decoration: underline;
+}
+
 /* general form */
 
 .form-line-item{
@@ -542,6 +553,18 @@ a.minimal:active, .minimal:active{
   display: block;
   position: absolute;
   display: none;
+}
+
+.password_resets h1{
+  font-size: 48px;
+  color: #333;
+  margin: 15px 0 30px 0;
+}
+
+.password_resets p{
+  font-size: 14px;
+  color: #999;
+  margin: 15px 0;
 }
 
 

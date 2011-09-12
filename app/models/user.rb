@@ -33,5 +33,10 @@ class User < ActiveRecord::Base
     return true if editor_for_list?(list) || creator_for_list?(list)
     return false    
   end
+  
+  def deliver_password_reset_instructions!
+    reset_perishable_token!
+    AppMailer.deliver_password_reset_instructions(self)
+  end
 
 end

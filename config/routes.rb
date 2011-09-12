@@ -30,6 +30,8 @@ Yeti::Application.routes.draw do
 
   get "landings/welcome"
   
+  resources :password_resets, :only => [ :new, :create, :edit, :update ]
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

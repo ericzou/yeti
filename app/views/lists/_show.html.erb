@@ -7,6 +7,7 @@
 <!-- <% if @creator_or_editor %>
 <div id="trash-can" style=""></div>    
 <% end %> -->
+
 <% if current_user %>
   <%= link_to "Copy List", new_list_path(:copy_list_id => @list.id), :class => "awesome small blue", :id=> "copy-list" %>
 <% end %>
@@ -81,10 +82,11 @@
       }
     });
     
-    $('.list-item .check-off').live("click", function(e){
+    $('.list-item .check-off').bind("click", function(e){
       $(e.target).parents('.list-item').find('.list-item-body').toggleClass("checked-off");
       $(e.target).parents('form').submit();
     });
+    
     $('form#new_list_item').submit(function(e){
       e.preventDefault();
       if ($('#list_item_body').val() === ''){

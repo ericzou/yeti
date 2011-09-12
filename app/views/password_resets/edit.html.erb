@@ -1,0 +1,13 @@
+<% body_id "edit" %>
+<% body_class "password_resets" %>
+
+<% content_for :content do %>
+  <h1>Update your password</h1>
+
+  <p>Please enter the new password below and then press "Update Password".</p>
+
+  <% form_tag password_reset_path, :method => :put do %>
+    <%= password_field_tag :password, "", :class => "form-textfield mid minimal-matching-height" %>
+    <%= submit_tag "Update Password", :class => "simple-button orange-red" %>
+  <% end %>
+<% end %>
