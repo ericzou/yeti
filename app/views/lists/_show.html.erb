@@ -81,28 +81,6 @@
         });
       }
     });
-    
-    $('.list-item .check-off').bind("click", function(e){
-      $(e.target).parents('.list-item').find('.list-item-body').toggleClass("checked-off");
-      $(e.target).parents('form').submit();
-    });
-    
-    $('form#new_list_item').submit(function(e){
-      e.preventDefault();
-      if ($('#list_item_body').val() === ''){
-        return false;
-      }
-      $.ajax({
-        url : $(this).attr("action"),
-        type: "post",
-        dateType: "html",
-        data: { list_item : { body : $('#list_item_body').val() }},
-        success : function(data){
-          $(".list-items").append(data);
-          $('#list_item_body').val('').focus();
-        }
-      });
-    });
     <% end %>
   });
 </script>

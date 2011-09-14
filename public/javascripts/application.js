@@ -84,4 +84,33 @@ $(document).ready(function(){
       $(this).parents("form").submit();
     }
   });
+  
+  $('.list-item .check-off').live("click", function(e){
+    $(e.target).parents('.list-item').find('.list-item-body').toggleClass("checked-off");
+    $(e.target).parents('form').submit();
+  });
+
+  $('.list-item .numbers.editable').live("click", function(e){
+    $(e.target).parents('.list-item').find('.list-item-body').toggleClass("checked-off");
+    var hidden_checkbox = $(e.target).parents('.list-item').find('form .check-off');
+    $(hidden_checkbox).attr('checked', !$(hidden_checkbox).attr('checked')  );
+    $(e.target).parents('.list-item').find('form').submit();
+  });
+
+  $('form#new_list_item').submit(function(e){
+    e.preventDefault();
+    if ($('#list_item_body').val() === ''){
+      return false;
+    }
+    $.ajax({
+      url : $(this).attr("action"),
+      type: "post",
+      dateType: "html",
+      data: { list_item : { body : $('#list_item_body').val() }},
+      success : function(data){
+        $(".list-items").append(data);
+        $('#list_item_body').val('').focus();
+      }
+    });
+  });
 })

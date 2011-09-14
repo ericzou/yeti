@@ -205,6 +205,9 @@
   min-width: 20px;
 }
 
+#main #right-panel-content .list-style.numbers:hover{
+  color: #aaa;
+}
 #main #right-panel-content .list-style.bullets{
   font-size: 16px;
   font-weight: bold;
