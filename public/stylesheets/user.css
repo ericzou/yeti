@@ -176,6 +176,9 @@
 #main #right-panel-content .list-item{
   margin-bottom: 15px;
   position: relative;
+  height: 22px;
+  line-height: 22px;
+
 }
 
 #main #right-panel-content .list-item.blank-state{
@@ -224,6 +227,38 @@
   *display:inline;
 }
 
+#main #right-panel-content .list-item-body-wrapper{
+  position: absolute;
+  top: -2px;
+  left: 30px;
+  width: 570px;
+}
+
+#main #right-panel-content .list-item-body-wrapper.editable:hover{
+  border: 1px solid #ccc;
+}
+
+#main #right-panel-content .list-item-body-wrapper .list-item-body{
+  margin-left: 5px;
+}
+
+#main #right-panel-content .list-item-body-wrapper.editing .list-item-body{
+  display: none;
+}
+
+#main #right-panel-content .list-item-body-wrapper .list-item-body-input{
+  display: none;
+}
+
+#main #right-panel-content .list-item-body-wrapper.editing .list-item-body-input{
+  display: block;
+}
+
+#main #right-panel-content .list-item-body-wrapper .list-item-body-input input{
+  width: 565px;
+  height: 22px;
+  line-height: 22px;
+}
 
 #main #right-panel-content #new-list-item-wrapper,
 #main #right-panel-content #add-list-item-wrapper{

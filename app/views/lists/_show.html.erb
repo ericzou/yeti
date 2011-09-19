@@ -18,7 +18,7 @@
 <% end %>
 
 <ul class="list-items">
-  <%= render :partial => @list.list_items %>  
+  <%= render :partial => @list.list_items.reject{ |lt| lt.new_record? } %>  
 </ul>
 
 <% if @creator_or_editor and @list_item %>

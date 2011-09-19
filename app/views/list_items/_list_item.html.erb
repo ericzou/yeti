@@ -1,8 +1,11 @@
 <% style = @list.style %>
+<% editable = (current_user and (current_user.creator_for_list?(@list) || current_user.editor_for_list?(@list))) ? true : false %>
 
 <% content_tag_for :li, list_item, :class=>"list-item" do  %>
   <% next if list_item.new_record? %>
-  <% if current_user and (current_user.creator_for_list?(@list) || current_user.editor_for_list?(@list)) %>
+  <%= hidden_field_tag :list_id, @list.id, :class => "list-id"%>
+  <%= hidden_field_tag :list_item_id, list_item.id, :class => "list-item-id"%>
+  <% if editable %>
     <% form_for [@list, list_item], :remote => true do |f| -%>
       <%= f.check_box :checked_off, :class=> "check-off #{ 'hide' if style == 'numbers' }" %>
     <% end -%>
@@ -13,6 +16,9 @@
     <span class="list-style <%= style %>" ><%= list_item.position %></span>
   <% end %>
   <%= floating_explanation(@list, "list_items.body", "Enter something") %>
-  <span class="list-item-body show-inline <%= list_item.checked_off? ? 'checked-off' : '' %>"><%= list_item.body %></span>
+  <div class="list-item-body-wrapper <%= "editable" if editable %>">
+    <span class="list-item-body <%= list_item.checked_off? ? 'checked-off' : '' %>"><%= list_item.body %></span>
+    <span class="list-item-body-input"><%= text_field_tag :list_item_body, list_item.body %></span>
+  </div>
 <% end %>
 

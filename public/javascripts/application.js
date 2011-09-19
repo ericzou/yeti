@@ -99,18 +99,46 @@ $(document).ready(function(){
 
   $('form#new_list_item').submit(function(e){
     e.preventDefault();
-    if ($('#list_item_body').val() === ''){
+    if ($('#new-list-item-wrapper #list_item_body').val() === ''){
       return false;
     }
-    $.ajax({
-      url : $(this).attr("action"),
-      type: "post",
-      dateType: "html",
-      data: { list_item : { body : $('#list_item_body').val() }},
-      success : function(data){
-        $(".list-items").append(data);
-        $('#list_item_body').val('').focus();
-      }
+    $.post($(this).attr("action"), { list_item : { body : $('#new-list-item-wrapper #list_item_body').val() } }, function(data){
+      $(".list-items").append(data);
+      $('#new-list-item-wrapper  #list_item_body').val('').focus();
     });
   });
+  
+  $('.list-item-body-wrapper.editable .list-item-body-input input').live("blur", function(e){
+    save_previously_edited();
+  });
+  
+  $('.list-item-body-wrapper.editable').live("click", function(e){
+    save_previously_edited();
+    switch_to_editing_mode(this);
+  });
+  
+  var switch_to_editing_mode = function(element){
+    $(element).addClass("editing");
+    $(element).find(".list-item-body-input input").focus();   
+  }
+  
+  var save_previously_edited = function(){
+    $('.list-item-body-wrapper.editing').each(function(index, element){
+      var list_item_body = $(element).find(".list-item-body");
+      var list_item_body_input = $(element).find(".list-item-body-input input");
+      if( $(list_item_body).text() != $(list_item_body_input).val()){
+        $(list_item_body).html($(list_item_body_input).val());
+        var list_id = $(element).parents(".list-item").find("input.list-id").val();
+        var list_item_id = $(element).parents(".list-item").find("input.list-item-id").val();
+        var url = "/lists/" + list_id + "/list_items/" + list_item_id;
+        $.ajax({ 
+          url: url,
+          type : "PUT", 
+          data :  { list_item : { body : $(list_item_body_input).val() } }, 
+          success :function(e){}
+        });
+      }
+      $(element).removeClass("editing");
+    });
+  }
 })

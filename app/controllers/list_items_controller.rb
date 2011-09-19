@@ -8,7 +8,7 @@ class ListItemsController < ApplicationController
     
     respond_to do |format|
       if @list_item.save
-        format.js { render :partial => "list_item", :locals => { :list_item => @list_item } }
+        format.html { render :partial => "list_item", :locals => { :list_item => @list_item } }
       else
         format.js do
           flash[:error] = "Please enter something"
