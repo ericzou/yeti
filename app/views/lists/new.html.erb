@@ -9,6 +9,7 @@
 <% end %>
 
 <% content_for :right_panel_content do %>
+  <div class="overlay" id="list_overlay"></div> 
   <%= render :partial => 'list_meta' %>
   <ul class="list-items">
     <% if @copy_list.nil? %>  

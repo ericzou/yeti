@@ -39,14 +39,30 @@
       <% end %>
     </div>
     <% end %>
-    <dd class="form-line-item actions">
-      <%= submit_tag "Save List", :class=> "minimal" %>
-      <%= submit_tag "Delete List", :class=> "minimal red", :confirm => "Are you sure you want to delete this list?" if @edit_mode and current_user.creator_for_list?(@list) %> 
-    </dd>
+    <% if !@edit_mode %>
+      <dd class="form-line-item actions">
+        <%= link_to "Next", "#", :class=> "minimal next" %>
+        <%= submit_tag "Save List", :class=> "minimal hide" %>
+      </dd>
+    <% else %>
+      <dd class="form-line-item actions">
+        <%= submit_tag "Save List", :class=> "minimal" %>
+        <%= submit_tag "Delete List", :class=> "minimal red", :confirm => "Are you sure you want to delete this list?" if @edit_mode and current_user.creator_for_list?(@list) %> 
+      </dd>
+    <% end %>
   </dd>
   </dl>
 <% end %>
 <script type="text/javascript">
   var data = "<%= @tags %>".split(", ");
-  $('#list_tag_list').autocomplete(data, { multiple : true })
+  $('#list_tag_list').autocomplete(data, { multiple : true });
+  
+  $('.next').bind("click", function(e){
+    e.preventDefault();
+    $("#list_overlay").fadeOut();
+    $(this).hide();
+    $(this).parents(".form-line-item").find("input[type=submit]").removeClass("hide");
+    $("#add-list-item-wrapper").find("input[type=textfield]").focus();
+  })
+  
 </script>
