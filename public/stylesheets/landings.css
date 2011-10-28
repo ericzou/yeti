@@ -43,10 +43,10 @@
   font-weight: bold;
   line-height: 40px;
   letter-spacing: 0.3px;
-  color: #444133;
-  text-shadow: 1px 1px #fff;
+  color: white;
+  text-shadow: 0 -1px #444;
 
-  background-color: #DFECC6;
+  background-color: #66bbff;
   padding: 20px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -56,7 +56,7 @@
 }
 
 #welcome h1 .tip{
-  background-image: url(/images/tip.png);
+  background: transparent url(/images/tip.png) no-repeat 0 0;
   position: absolute;
   bottom: -30px;
   right: 10px;

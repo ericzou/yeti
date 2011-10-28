@@ -86,7 +86,7 @@ html[xmlns] .clearfix {
 
 #top{
   xbackground: transparent url(/images/header.gif) repeat-x;
-  background-color: #777;
+  background-color: #222;
   height: 60px;
 }
 
@@ -148,7 +148,7 @@ html[xmlns] .clearfix {
 
 /*container*/
 #container{
-  background: #ccc url(/images/body.png) repeat;
+  background: #fff; /*url(/images/body.png) repeat */;
   padding: 30px 0 30px 0;
   min-height: 500px;
 }
@@ -173,7 +173,7 @@ html[xmlns] .clearfix {
 #bottom{
   border-top: 1px solid #aaa;
   padding: 5px 0 0 0;
-  background-color: #ededed;
+  background-color: #eee;
   min-height: 150px;
 }
 
@@ -185,12 +185,12 @@ html[xmlns] .clearfix {
 #footer-nav li{
   float: left;
   margin-left: 15px;
-  color: #689c00;
+  color: #66bbff;
   text-shadow: 1px 1px #fff;
 }
 
 #footer-nav li a{
-  color: #689c00;
+  color: #66bbff;
   text-shadow: 1px 1px #fff;  
   text-decoration: none;
 }
@@ -218,7 +218,7 @@ html[xmlns] .clearfix {
   font: 14px Arial, sans-serif;
   color: #7C7972;
   border: 1px solid #E2E0D8;
-  background: #F6F5F1;
+  background: #eee;
   padding: 9px 5px 10px;
 }
 
@@ -266,6 +266,13 @@ html[xmlns] .clearfix {
   border: 1px solid #84c150;
   color: #fff;
   padding: 5px;
+}
+
+.form-textfield.gray{
+  background-color: #eeeeee;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 5px;  
 }
 
 .form-textfield.black{
@@ -439,6 +446,9 @@ a.minimal:active, .minimal:active{
 .orange.awesome:hover							{ background-color: #d45500; }
 .yellow.awesome, .yellow.awesome:visited		{ background-color: #ffb515; }
 .yellow.awesome:hover							{ background-color: #fc9200; }
+.gray.awesome, .gray.awesome:visited		{ background-color: #777; }
+.gray.awesome:hover							{ background-color: #999; }
+
 
 .purple.awesome{
   background-color: #b53d78;
@@ -488,27 +498,35 @@ a.minimal:active, .minimal:active{
 }
 
 .simple-button.orange-red{
-  background-color: #e55208
+  background-color: #e55208;
 }
 
 .simple-button.orange-red:hover{
-  background-color: #f24026
+  background-color: #f24026;
+}
+
+.simple-button.gray{
+  background-color: #777;
+}
+
+.simple-button.gray:hover{
+  background-color: #999;
 }
 
 .simple-button.large{
-  font-size: 24px
+  font-size: 24px;
 }
 
 .simple-button.huge{
-  font-size: 36px
+  font-size: 36px;
 }
 
 .simple-button.normal{
-  font-size: 14px
+  font-size: 14px;
 }
 
 .simple-button.small{
-  font-size: 12px
+  font-size: 12px;
 }
 
 .very-simple-button{
