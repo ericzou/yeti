@@ -121,6 +121,15 @@ html[xmlns] .clearfix {
   padding: 2px 3px;
 }
 
+#user-menu a{
+  color: white;
+}
+
+#user-menu .logout{
+  z-index: 99999999;
+}
+
+
 #global-nav{
   position: absolute;
   top: 35px;
@@ -166,7 +175,7 @@ html[xmlns] .clearfix {
   border: 1px solid #ccc;
   margin: 0 auto 20px auto;
   padding: 20px;
-  background-color: #f8f8f8;
+  background-color: #f4fafe;
 }
 
 /*bottom*/
@@ -271,7 +280,7 @@ html[xmlns] .clearfix {
 .form-textfield.gray{
   background-color: #eeeeee;
   border: 1px solid #333;
-  color: #fff;
+  color: black;
   padding: 5px;  
 }
 
@@ -351,22 +360,22 @@ html[xmlns] .clearfix {
 /* minimal
 *******************************************************************************/
 button.minimal, a.minimal, .minimal{
-  background: #e3e3e3;
-  border: 1px solid #bbb;
+  background: #777;
+  border: 1px solid #555;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  -moz-box-shadow: inset 0 0 1px 1px #f6f6f6;
-  -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
-  box-shadow: inset 0 0 1px 1px #f6f6f6;
-  color: #333;
+  -moz-box-shadow: inset 0 0 1px 1px #999;
+  -webkit-box-shadow: inset 0 0 1px 1px #999;
+  box-shadow: inset 0 0 1px 1px #999;
+  color: white;
   font-family: "helvetica neue", helvetica, arial, sans-serif;
   font-size: 12px;
   font-weight: bold;
   line-height: 1;
   padding: 8px 0 9px;
   text-align: center;
-  text-shadow: 0 1px 0 #fff;
+  text-shadow: 0 1px 0 #333;
   width: 150px;
   text-decoration: none;
 }
@@ -392,11 +401,11 @@ a.minimal{
 
 button.minimal:hover,
 a.minimal:hover, .minimal:hover{
-  background: #d9d9d9;
-  -moz-box-shadow: inset 0 0 1px 1px #eaeaea;
-  -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
-  box-shadow: inset 0 0 1px 1px #eaeaea;
-  color: #222;
+  background: #888;
+  -moz-box-shadow: inset 0 0 1px 1px #aaa;
+  -webkit-box-shadow: inset 0 0 1px 1px #aaa;
+  box-shadow: inset 0 0 1px 1px #aaa;
+  color: white;
   cursor: pointer;
 }
 
@@ -436,8 +445,8 @@ a.minimal:active, .minimal:active{
 
 .green.awesome, .green.awesome:visited		{ background-color: #91bd09; }
 .green.awesome:hover						{ background-color: #749a02; }
-.blue.awesome, .blue.awesome:visited		{ background-color: #2daebf; }
-.blue.awesome:hover							{ background-color: #007d9a; }
+.blue.awesome, .blue.awesome:visited		{ background-color: #66bbff; }
+.blue.awesome:hover							{ background-color: #80c7ff; }
 .red.awesome, .red.awesome:visited			{ background-color: #e33100; }
 .red.awesome:hover							{ background-color: #872300; }
 .magenta.awesome, .magenta.awesome:visited		{ background-color: #a9014b; }
@@ -560,7 +569,7 @@ a.minimal:active, .minimal:active{
   width: 160px;
   height: 850px;
   position: absolute;
-  top: 0;
+  top: 30px;
   right: 0;
 }
 
