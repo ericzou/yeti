@@ -6,7 +6,7 @@
 <% content_for :left_panel_content do %>
 <dl id="public-lists" class="lists">
   <dt class="lists-title">PUBLIC LISTS</dt>
-  <% if @lists.blank? %>
+  <% if @lists.blank? || @lists.compact.blank? %>
     <dd class="list blank-state">Nothing here</dd>
   <% else %>
     <% @lists.each_with_index do |list, index| %>

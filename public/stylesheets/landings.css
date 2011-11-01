@@ -15,6 +15,21 @@
 
 #welcome #featured-lists{
   float: left;
+  min-width: 600px;
+}
+
+#welcome #featured-lists #search{
+  margin: 30px 0 0;
+  padding: 15px 0;
+  border-top: 1px solid  #ccc;
+}
+
+#welcome #featured-lists #search input.form-textfield{
+  width: 450px;
+}
+
+#welcome #featured-lists #search button{
+  padding: 10px 0 12px;
 }
 
 #welcome #featured-lists img{

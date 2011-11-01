@@ -5,10 +5,7 @@
   <div id="search-or-create" class="clearfix">
     <ul>
       <li>
-        <% form_tag(search_lists_path, { :method => "get"}) do %>
-        <%= text_field_tag :q, nil, :class => "form-textfield mid" %>
-        <button class="minimal">Search Lists</button>
-        <% end -%>
+        <%= render :partial => 'layouts/search' %> 
       </li>
       <li id="create-a-list">
         <%= link_to "Create a list", new_list_path, :class => "minimal"  %>
