@@ -7,9 +7,11 @@
       <li>
         <%= render :partial => 'layouts/search' %> 
       </li>
+	  <% if current_user %>
       <li id="create-a-list">
         <%= link_to "Create a list", new_list_path, :class => "minimal"  %>
       </li>
+	  <% end %>
       <li id="browse-lists">
         <%= link_to "Browse", browse_lists_path, :class => "minimal"  %>
       </li>
