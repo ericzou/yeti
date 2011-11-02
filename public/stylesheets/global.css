@@ -87,7 +87,7 @@ html[xmlns] .clearfix {
 #top{
   xbackground: transparent url(/images/header.gif) repeat-x;
   background-color: #222;
-  height: 60px;
+  height: 50px;
 }
 
 #top #header{
@@ -97,7 +97,7 @@ html[xmlns] .clearfix {
 }
 
 #logo{
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 #login,
@@ -290,6 +290,39 @@ html[xmlns] .clearfix {
   color: #fff;
   padding: 5px;
 }
+
+label.inlined{
+  position: relative;
+  opacity: 0.9;
+  -webkit-transition: opacity 0.15s linear;
+  z-index: 1;
+  margin-bottom: -28px;
+  padding-left: 6px;
+  color: #ddd;
+}
+
+label.inlined.focus{
+  opacity: 0.5;
+}
+
+label.inlined.has-text{
+  opacity: 0;
+}
+
+label.inlined + input.form-textfield{
+  position: relative;
+  z-index: 2;
+  background: transparent url(/images/sign-in-form.png) no-repeat;
+  height: 25px;
+  border: none;
+  line-height: 1.7;
+}
+
+label.inlined.focus + input.form-textfield, 
+label.inlined.has-text + input.form-textfield{
+  background: transparent url(/images/sign-in-form.png) no-repeat 0 -35px;
+}
+
 
 
 .floating-explanation{
