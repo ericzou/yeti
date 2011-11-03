@@ -297,7 +297,7 @@ label.inlined{
   filter: alpha(opacity = 0.9);
   -webkit-transition: opacity 0.15s linear;
   z-index: 1;
-  margin-bottom: -28px;
+  margin-bottom: -26px;
   padding-left: 6px;
   color: #ddd;
 }
