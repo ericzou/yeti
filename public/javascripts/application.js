@@ -97,7 +97,7 @@ $(document).ready(function(){
     $(e.target).parents('.list-item').find('form').submit();
   });
 
-  $('form#new_list_item').submit(function(e){
+  $('form#new_list_item').live("submit", function(e){
     e.preventDefault();
     if ($('#new-list-item-wrapper #list_item_body').val() === ''){
       return false;
