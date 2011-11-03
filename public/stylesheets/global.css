@@ -294,6 +294,7 @@ html[xmlns] .clearfix {
 label.inlined{
   position: relative;
   opacity: 0.9;
+  filter: alpha(opacity = 0.9);
   -webkit-transition: opacity 0.15s linear;
   z-index: 1;
   margin-bottom: -28px;
@@ -303,10 +304,12 @@ label.inlined{
 
 label.inlined.focus{
   opacity: 0.5;
+  filter: alpha(opacity = 50);
 }
 
 label.inlined.has-text{
   opacity: 0;
+  filter: alpha(opacity = 0);
 }
 
 label.inlined + input.form-textfield{
