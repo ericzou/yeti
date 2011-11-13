@@ -129,6 +129,9 @@ html[xmlns] .clearfix {
   z-index: 99999999;
 }
 
+#user-menu .name{
+  color: white;
+}
 
 #global-nav{
   position: absolute;
