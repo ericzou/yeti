@@ -3,7 +3,7 @@ class AppMailer < ActionMailer::Base
   
   def notification_to_admin_new_user_sign_up(user)
     @user = user
-    mail :to => ADMIN_EMAILS, :subject => "Yeti - #{Rails.env} - A new user just signed up!"
+    mail :to => ADMIN_EMAILS, :subject => "MRVLST - #{Rails.env} - A new user just signed up!"
   end
   
   def invitation_to_share_list(invitation)
