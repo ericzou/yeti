@@ -8,5 +8,5 @@ ROLES = {
 if Rails.env.production?
   YETI_URL = "http://www.pickledprojects.com"
 else
-  YETI_URL = "http://localhost:3001"
+  YETI_URL = "http://localhost:3000"
 end
